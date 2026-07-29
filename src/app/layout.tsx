@@ -29,7 +29,6 @@ export default function RootLayout({
         />
       </head>
       <body className="min-h-screen antialiased" style={{ fontFamily: "'Inter Tight', sans-serif" }} suppressHydrationWarning>
-        <div className="noise" />
         <ClientLayout>{children}</ClientLayout>
       </body>
     </html>

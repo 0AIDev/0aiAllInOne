@@ -1,12 +1,13 @@
 import { verifySession } from "@/lib/auth/auth-options";
 import { prisma } from "@/lib/prisma";
 import { redirect } from "next/navigation";
+import { PlanCards } from "./plan-cards";
 
 export default async function SubscriptionPage() {
   const session = await verifySession();
   if (!session) redirect("/login");
 
-  const [tenant, subscription, invoices] = await Promise.all([
+  const [tenant, subscription, invoices, plans] = await Promise.all([
     prisma.tenant.findUnique({
       where: { id: session.tenantId },
       include: { subscription: true },
@@ -19,6 +20,10 @@ export default async function SubscriptionPage() {
       where: { subscription: { tenantId: session.tenantId } },
       orderBy: { createdAt: "desc" },
       take: 12,
+    }),
+    prisma.plan.findMany({
+      where: { isPublic: true },
+      orderBy: { sortOrder: "asc" },
     }),
   ]);
 
@@ -57,6 +62,8 @@ export default async function SubscriptionPage() {
           </div>
         </div>
       </div>
+
+      <PlanCards plans={plans} currentTier={tenant.planTier} />
 
       {invoices.length > 0 && (
         <div className="mt-8">
