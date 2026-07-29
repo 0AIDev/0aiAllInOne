@@ -81,7 +81,7 @@
     "eslint-config-next": "^15.3.0",
     "jsdom": "^30.0.1",
     "postcss": "^8.5.3",
-    "prisma": "^6.5.0",
+    "prisma": "^7.9.1",
     "tailwindcss": "^4.1.4",
     "tsx": "^4.19.3",
     "typescript": "^5.8.3",
