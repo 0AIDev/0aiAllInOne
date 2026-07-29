@@ -26,7 +26,23 @@ export function HeroSection() {
   }
 
   return (
-    <section className="relative flex min-h-[90vh] flex-col items-center justify-center overflow-hidden px-4 py-8 sm:px-6 lg:px-8">
+    <section className="relative flex min-h-[90vh] flex-col items-center justify-center px-4 py-8 sm:px-6 lg:px-8">
+      <div className="absolute inset-0 flex items-center justify-center pointer-events-none" style={{ zIndex: -1 }} aria-hidden="true">
+        <svg width="520" height="420" viewBox="-20 -20 480 380" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="heroZigzag" x1="200" y1="0" x2="200" y2="320" gradientUnits="userSpaceOnUse">
+              <stop stopOpacity="0.6" stopColor="#DC2626" />
+              <stop offset="0.5" stopOpacity="0.3" stopColor="#DC2626" />
+              <stop offset="1" stopOpacity="0.1" stopColor="#DC2626" />
+            </linearGradient>
+            <filter id="heroZBlur" x="-20" y="-20" width="480" height="380">
+              <feGaussianBlur in="SourceGraphic" stdDeviation="1.2" />
+            </filter>
+          </defs>
+          <path d="M398.97 0.5L147.576 319.5H1.03027L37.5996 273.081L120.167 169.603L120.171 169.598L215.342 47.5605L215.343 47.5615L252.424 0.5H398.97ZM264.544 273.271H372.527L336.082 319.498H189.886L202.642 303.307C217.584 284.34 240.398 273.271 264.544 273.271ZM209.164 0.5L202.786 8.58887C183.782 32.6885 154.782 46.752 124.091 46.752H25.9805L62.4268 0.5H209.164Z" fill="url(#heroZigzag)" filter="url(#heroZBlur)" opacity="0.8" />
+          <path d="M398.97 0.5L147.576 319.5H1.03027L37.5996 273.081L120.167 169.603L120.171 169.598L215.342 47.5605L215.343 47.5615L252.424 0.5H398.97ZM264.544 273.271H372.527L336.082 319.498H189.886L202.642 303.307C217.584 284.34 240.398 273.271 264.544 273.271ZM209.164 0.5L202.786 8.58887C183.782 32.6885 154.782 46.752 124.091 46.752H25.9805L62.4268 0.5H209.164Z" stroke="url(#heroZigzag)" strokeWidth="1" fill="none" opacity="0.5" />
+        </svg>
+      </div>
       {/* Eyebrow badge */}
       <div
         ref={badgeRef}
@@ -40,24 +56,7 @@ export function HeroSection() {
       </div>
 
       {/* Main heading */}
-      <div className="relative">
-        <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none" style={{ zIndex: -1 }} aria-hidden="true">
-          <svg width="520" height="420" viewBox="-20 -20 480 380" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <defs>
-              <linearGradient id="heroZigzag" x1="200" y1="0" x2="200" y2="320" gradientUnits="userSpaceOnUse">
-                <stop stopOpacity="0.6" stopColor="#DC2626" />
-                <stop offset="0.5" stopOpacity="0.3" stopColor="#DC2626" />
-                <stop offset="1" stopOpacity="0.1" stopColor="#DC2626" />
-              </linearGradient>
-              <filter id="heroZBlur" x="-20" y="-20" width="480" height="380">
-                <feGaussianBlur in="SourceGraphic" stdDeviation="1.2" />
-              </filter>
-            </defs>
-            <path d="M398.97 0.5L147.576 319.5H1.03027L37.5996 273.081L120.167 169.603L120.171 169.598L215.342 47.5605L215.343 47.5615L252.424 0.5H398.97ZM264.544 273.271H372.527L336.082 319.498H189.886L202.642 303.307C217.584 284.34 240.398 273.271 264.544 273.271ZM209.164 0.5L202.786 8.58887C183.782 32.6885 154.782 46.752 124.091 46.752H25.9805L62.4268 0.5H209.164Z" fill="url(#heroZigzag)" filter="url(#heroZBlur)" opacity="0.8" />
-            <path d="M398.97 0.5L147.576 319.5H1.03027L37.5996 273.081L120.167 169.603L120.171 169.598L215.342 47.5605L215.343 47.5615L252.424 0.5H398.97ZM264.544 273.271H372.527L336.082 319.498H189.886L202.642 303.307C217.584 284.34 240.398 273.271 264.544 273.271ZM209.164 0.5L202.786 8.58887C183.782 32.6885 154.782 46.752 124.091 46.752H25.9805L62.4268 0.5H209.164Z" stroke="url(#heroZigzag)" strokeWidth="1" fill="none" opacity="0.5" />
-          </svg>
-        </div>
-        <h1
+      <h1
           ref={headingRef}
           className={cn(
             "max-w-4xl text-center text-[clamp(48px,8vw,104px)] font-medium leading-[1.05] tracking-[-0.02em] text-[#0F0F0E] transition-all duration-700 delay-100",
@@ -75,7 +74,6 @@ export function HeroSection() {
           </em>
           .
         </h1>
-      </div>
 
       {/* Subtitle */}
       <p
