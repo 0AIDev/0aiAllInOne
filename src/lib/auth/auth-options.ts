@@ -2,7 +2,7 @@ import { SignJWT, jwtVerify } from "jose";
 import { prisma } from "@/lib/prisma";
 import { compare, hash } from "bcryptjs";
 import { cookies } from "next/headers";
-import type { TenantRole } from "@prisma/client";
+import type { PlanTier, TenantRole } from "@prisma/client";
 
 function getJwtSecret(): Uint8Array {
   const secret = process.env.JWT_SECRET;
@@ -102,6 +102,7 @@ export async function register(params: {
   password: string;
   name: string;
   tenantName: string;
+  planTier?: string;
 }): Promise<string> {
   const existing = await prisma.user.findUnique({
     where: { email: params.email },
@@ -119,6 +120,7 @@ export async function register(params: {
     data: {
       name: params.tenantName,
       slug,
+      planTier: (params.planTier as PlanTier) ?? "FREE",
     },
   });
 

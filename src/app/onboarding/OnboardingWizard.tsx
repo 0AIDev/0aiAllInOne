@@ -36,9 +36,9 @@ function getDomain(slug: string): string {
 }
 
 export function OnboardingWizard({
-  providers, totalConnected, totalProviders, hasApiKey: _hasApiKey,
+  providers, totalConnected, totalProviders,
 }: {
-  providers: ProviderInfo[]; totalConnected: number; totalProviders: number; hasApiKey: boolean;
+  providers: ProviderInfo[]; totalConnected: number; totalProviders: number;
 }) {
   const { t } = useLocale();
   const router = useRouter();

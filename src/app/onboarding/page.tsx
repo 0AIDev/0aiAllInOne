@@ -35,7 +35,6 @@ export default async function OnboardingPage() {
         providers={simpleProviders}
         totalConnected={totalConnected}
         totalProviders={totalProviders}
-        hasApiKey={hasApiKey}
       />
     </div>
   );

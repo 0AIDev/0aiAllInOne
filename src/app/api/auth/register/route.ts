@@ -4,11 +4,18 @@ import { register, setSessionCookie } from "@/lib/auth/auth-options";
 export async function POST(request: NextRequest) {
   try {
     const body = await request.json();
-    const { email, password, name } = body;
+    const { email, password, name, planTier } = body;
 
     if (!email || !password || !name) {
       return NextResponse.json(
         { error: "Name, email, and password are required" },
+        { status: 400 }
+      );
+    }
+
+    if (!planTier) {
+      return NextResponse.json(
+        { error: "Plan selection is required" },
         { status: 400 }
       );
     }
@@ -21,7 +28,7 @@ export async function POST(request: NextRequest) {
     }
 
     const tenantName = `${name}'s Organization`;
-    const token = await register({ email, password, name, tenantName });
+    const token = await register({ email, password, name, tenantName, planTier });
 
     const response = NextResponse.json({ success: true });
     response.headers.set("Set-Cookie", setSessionCookie(token));
