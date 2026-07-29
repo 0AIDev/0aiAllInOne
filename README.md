@@ -1,5 +1,10 @@
 <div align="center">
+  <p align="center">
+    <img src="public/171shots_so.png" alt="AI0FY Hero" width="90%" style="border-radius: 14px; border: 1px solid rgba(15,15,14,0.08);" />
+  </p>
+
   <br/>
+
   <pre style="font-family: 'Instrument Serif', serif; font-style: italic; font-size: 4rem; letter-spacing: -0.02em; line-height: 1; color: #0F0F0E; background: #F9F9F6; padding: 2rem 0;">
     290+ AI models.
     <em style="font-weight: 400;">One endpoint.</em>
@@ -18,12 +23,6 @@
     <a href="#architecture">Architecture</a> •
     <a href="#i18n">🌐 i18n</a> •
     <a href="#deploy">Deploy</a>
-  </p>
-
-  <br/>
-
-  <p align="center">
-    <img src="public/171shots_so.png" alt="AI0FY Hero" width="90%" style="border-radius: 14px; border: 1px solid rgba(15,15,14,0.08);" />
   </p>
 
   <br/>
