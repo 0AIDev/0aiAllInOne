@@ -27,6 +27,8 @@ export default async function OnboardingPage() {
   const totalProviders = providers.length;
   const hasApiKey = await prisma.apiKey.count({ where: { tenantId: session.tenantId } }) > 0;
 
+  if (hasApiKey) redirect("/dashboard");
+
   return (
     <div className="min-h-screen bg-[#F9F9F6]">
       <OnboardingWizard
