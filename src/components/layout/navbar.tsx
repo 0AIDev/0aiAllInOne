@@ -3,6 +3,7 @@
 import { useState, useRef, useEffect } from "react";
 import Link from "next/link";
 import { Menu, X, ChevronDown, LogOut, User } from "lucide-react";
+import { Squircle } from "@squircle-js/react";
 
 import { cn } from "@/lib/utils/cn";
 import { useLocale } from "@/i18n/locale-provider";
@@ -160,33 +161,45 @@ export function Navbar({ user, className }: NavbarProps) {
       {/* Mobile menu */}
       {mobileOpen && (
         <>
-          <div className="fixed inset-0 z-40 bg-black/20 backdrop-blur-sm md:hidden" onClick={() => setMobileOpen(false)} />
-          <div className="fixed bottom-0 right-0 top-16 z-50 w-full max-w-sm overflow-y-auto bg-white shadow-2xl md:hidden">
-            <div className="flex flex-col gap-1 px-6 py-4" style={{ fontFamily: "'Inter Tight', sans-serif" }}>
-              {NAV_LINKS.map((link) => (
-                <Link key={link.href} href={link.href} onClick={() => setMobileOpen(false)} className="rounded-lg px-3 py-2.5 text-sm font-medium text-[#3A3A37] transition-colors hover:bg-[rgba(15,15,14,0.05)] hover:text-[#0F0F0E]">
-                  {t("nav." + link.label.toLowerCase().replace(/ /g, "-"))}
-                </Link>
-              ))}
-              <div className="my-3 h-px bg-[rgba(15,15,14,0.1)]" />
-              {user ? (
-                <>
-                  <div className="flex items-center gap-3 px-3 py-2">
-                    <div className="flex h-8 w-8 items-center justify-center rounded-full bg-[#0F0F0E] text-xs font-semibold text-white">{initials}</div>
-                    <div>
-                      <p className="text-sm font-medium text-[#0F0F0E]">{user.name}</p>
-                      <p className="text-xs text-[#7A7870]">{user.email}</p>
-                    </div>
-                  </div>
-                  <Link href="/dashboard" onClick={() => setMobileOpen(false)} className="flex items-center gap-2.5 rounded-lg px-3 py-2.5 text-sm text-[#3A3A37] transition-colors hover:bg-[rgba(15,15,14,0.05)]"><User className="size-4" /> Dashboard</Link>
-                  <Link href="/api/auth/logout" onClick={() => setMobileOpen(false)} className="flex items-center gap-2.5 rounded-lg px-3 py-2.5 text-sm text-red-600 transition-colors hover:bg-red-50"><LogOut className="size-4" /> Logout</Link>
-                </>
-              ) : (
-                <>
-                  <Link href="/login" onClick={() => setMobileOpen(false)} className="rounded-lg px-3 py-2.5 text-sm font-medium text-[#3A3A37] transition-colors hover:bg-[rgba(15,15,14,0.05)]">{t("nav.signIn")}</Link>
-                  <Link href="/register" onClick={() => setMobileOpen(false)} className="mt-1 rounded-lg bg-[#0F0F0E] px-4 py-2.5 text-center text-sm font-medium text-white transition-opacity hover:opacity-90">{t("nav.startFree")}</Link>
-                </>
-              )}
+          <div className="fixed inset-0 z-40 md:hidden" style={{ background: "rgba(255,255,255,0.15)", backdropFilter: "blur(24px) saturate(180%)", WebkitBackdropFilter: "blur(24px) saturate(180%)" }} onClick={() => setMobileOpen(false)} />
+          <div className="fixed inset-0 z-50 flex items-center justify-center md:hidden">
+            <div className="relative mx-4 w-full max-w-sm">
+              <button
+                type="button"
+                onClick={() => setMobileOpen(false)}
+                className="absolute -top-2 right-0 z-10 flex h-7 w-7 items-center justify-center rounded-full bg-[#0F0F0E] text-white transition-opacity hover:opacity-80"
+                aria-label="Close menu"
+              >
+                <X className="h-3.5 w-3.5" />
+              </button>
+              <Squircle cornerRadius={20} cornerSmoothing={1} style={{ background: "rgba(255,255,255,0.85)", backdropFilter: "blur(24px) saturate(180%)", WebkitBackdropFilter: "blur(24px) saturate(180%)", border: "1px solid rgba(15,15,14,0.08)", boxShadow: "0 8px 40px rgba(0,0,0,0.08)" }}>
+                <div className="flex flex-col gap-1 px-6 py-8" style={{ fontFamily: "'Inter Tight', sans-serif" }}>
+                  {NAV_LINKS.map((link) => (
+                    <Link key={link.href} href={link.href} onClick={() => setMobileOpen(false)} className="rounded-lg px-3 py-2.5 text-sm font-medium text-[#3A3A37] transition-colors hover:bg-[rgba(15,15,14,0.05)] hover:text-[#0F0F0E]">
+                      {t("nav." + link.label.toLowerCase().replace(/ /g, "-"))}
+                    </Link>
+                  ))}
+                  <div className="my-3 h-px bg-[rgba(15,15,14,0.1)]" />
+                  {user ? (
+                    <>
+                      <div className="flex items-center gap-3 px-3 py-2">
+                        <div className="flex h-8 w-8 items-center justify-center rounded-full bg-[#0F0F0E] text-xs font-semibold text-white">{initials}</div>
+                        <div>
+                          <p className="text-sm font-medium text-[#0F0F0E]">{user.name}</p>
+                          <p className="text-xs text-[#7A7870]">{user.email}</p>
+                        </div>
+                      </div>
+                      <Link href="/dashboard" onClick={() => setMobileOpen(false)} className="flex items-center gap-2.5 rounded-lg px-3 py-2.5 text-sm text-[#3A3A37] transition-colors hover:bg-[rgba(15,15,14,0.05)]"><User className="size-4" /> Dashboard</Link>
+                      <Link href="/api/auth/logout" onClick={() => setMobileOpen(false)} className="flex items-center gap-2.5 rounded-lg px-3 py-2.5 text-sm text-red-600 transition-colors hover:bg-red-50"><LogOut className="size-4" /> Logout</Link>
+                    </>
+                  ) : (
+                    <>
+                      <Link href="/login" onClick={() => setMobileOpen(false)} className="rounded-lg px-3 py-2.5 text-sm font-medium text-[#3A3A37] transition-colors hover:bg-[rgba(15,15,14,0.05)]">{t("nav.signIn")}</Link>
+                      <Link href="/register" onClick={() => setMobileOpen(false)} className="mt-1 rounded-lg bg-[#0F0F0E] px-4 py-2.5 text-center text-sm font-medium text-white transition-opacity hover:opacity-90">{t("nav.startFree")}</Link>
+                    </>
+                  )}
+                </div>
+              </Squircle>
             </div>
           </div>
         </>
