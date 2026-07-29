@@ -43,6 +43,6 @@ export const STRIPE_PLANS = {
     tokensPerMonth: 500_000_000,
     requestsPerMin: 10000,
     maxApiKeys: 1000,
-    monthlyPrice: 999_00,
+    monthlyPrice: 399_90,
   },
 } as const;
