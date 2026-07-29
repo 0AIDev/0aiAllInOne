@@ -121,12 +121,18 @@ model User {
   role          TenantRole  @default(MEMBER)
   isActive      Boolean     @default(true)
   lastLoginAt   DateTime?
-  createdAt     DateTime    @default(now())
+  totalEarnings        Float       @default(0)
+  walletBalance        Float       @default(0)
+  stripeConnectId      String?
+  stripeConnectVerified Boolean    @default(false)
+  createdAt            DateTime    @default(now())
   updatedAt     DateTime    @updatedAt
 
   tenant        Tenant      @relation(fields: [tenantId], references: [id], onDelete: Cascade)
   sessions      Session[]
   apiKeys       ApiKey[]    @relation("UserApiKeys")
+  skills        Skill[]
+  payouts       Payout[]
 
   @@index([tenantId])
   @@index([email])
@@ -471,6 +477,72 @@ model AlertConfig {
 
   @@index([tenantId])
   @@map("alert_configs")
+}
+
+// ─── Creator Marketplace ────────────────────────────────────
+
+model Skill {
+  id          String        @id @default(uuid())
+  title       String
+  slug        String      @unique
+  description String
+  category    String
+  price       Float       @default(0)
+  priceCents  Int         @default(0)
+  triggers    String      @default("[]")
+  content     String      @default("")
+  markdown    String      @default("")
+  version     String      @default("1.0.0")
+  creatorId   String?
+  downloads   Int           @default(0)
+  rating      Float         @default(0)
+  published   Boolean       @default(false)
+  status      String        @default("ACTIVE")
+  createdAt   DateTime      @default(now())
+  updatedAt   DateTime      @updatedAt
+
+  creator     User?         @relation(fields: [creatorId], references: [id], onDelete: SetNull)
+  transactions Transaction[]
+
+  @@index([creatorId])
+  @@index([published])
+  @@index([category])
+  @@map("skills")
+}
+
+model Transaction {
+  id          String   @id @default(uuid())
+  skillId     String
+  buyerId     String
+  amount      Float    @default(0)
+  amountNet   Float    @default(0)
+  status      String   @default("COMPLETED")
+  createdAt   DateTime @default(now())
+
+  skill       Skill    @relation(fields: [skillId], references: [id], onDelete: Cascade)
+
+  @@index([skillId])
+  @@index([buyerId])
+  @@index([status])
+  @@map("transactions")
+}
+
+model Payout {
+  id             String   @id @default(uuid())
+  userId         String
+  amount         Float    @default(0)
+  status         String   @default("PENDING")
+  stripeId       String?
+  stripePayoutId String?
+  processedAt    DateTime?
+  createdAt      DateTime @default(now())
+  paidAt         DateTime?
+
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId])
+  @@index([status])
+  @@map("payouts")
 }
 
 // ─── Prompt Cache ───────────────────────────────────────────

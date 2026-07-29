@@ -47,7 +47,7 @@ export async function GET(request: NextRequest) {
   return NextResponse.json({
     skills: skills.map((s) => ({
       ...s,
-      creatorName: s.creator.name,
+      creatorName: s.creator?.name ?? "Unknown",
       creator: undefined,
     })),
     pagination: {

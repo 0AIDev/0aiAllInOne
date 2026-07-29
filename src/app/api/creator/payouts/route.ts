@@ -84,7 +84,7 @@ export async function POST() {
 
   const payout = await prisma.payout.create({
     data: {
-      creatorId: session.userId,
+      userId: session.userId,
       amount: amountCents,
       status: "PENDING",
     },

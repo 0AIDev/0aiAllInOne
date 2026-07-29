@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+export const dynamic = "force-dynamic";
 import { Navbar } from "@/components/layout/navbar";
 import { Footer } from "@/components/layout/footer";
 import { verifySession } from "@/lib/auth/auth-options";
@@ -79,7 +80,7 @@ export default async function MarketplacePage() {
                     </span>
                   </div>
                   <div className="mt-4 flex items-center gap-4 text-xs text-[#7A7870]">
-                    <span>{skill.creator.name ?? "Anonymous"}</span>
+                    <span>{skill.creator?.name ?? "Anonymous"}</span>
                     <span>·</span>
                     <span>{skill.downloads} downloads</span>
                     {skill.rating > 0 && (
