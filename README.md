@@ -582,7 +582,7 @@ Creates:
 ## ✦ i18n — 7 Languages
 
 <p align="center">
-  <img src="https://placehold.co/900x350/F9F9F6/0F0F0E?text=i18n+System+Architecture" alt="i18n Architecture" width="80%" style="border-radius: 14px; border: 1px solid rgba(15,15,14,0.08);" />
+  <img src="public/MockupViews_1x_JPG_20260729_340.jpg" alt="i18n Architecture" width="80%" style="border-radius: 14px; border: 1px solid rgba(15,15,14,0.08);" />
 </p>
 
 <br/>
