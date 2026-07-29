@@ -136,7 +136,7 @@ export function PlanCards({ plans, currentTier }: PlanCardsProps) {
       <div className="rounded-[14px] border border-[rgba(15,15,14,0.08)] bg-white p-8">
         <h2 className="text-xl font-medium text-[#0F0F0E]">Buy Credits</h2>
         <p className="mt-1 text-sm text-[#7A7870]">
-          One credit = one API request. Credits never expire. Use them across any provider.
+          Pre-purchase tokens at a discounted rate. Credits never expire. Use them across any provider.
         </p>
 
         <div className="mt-6 flex flex-wrap gap-3">
