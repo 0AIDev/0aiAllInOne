@@ -168,9 +168,7 @@ The `model` field accepts either a specific provider model (e.g. `gpt-4o`, `clau
 ## ✦ Routing Engine — Deep Dive
 
 <p align="center">
-  <a href="https://streamable.com/5l88f4" target="_blank">
-    <img src="https://placehold.co/1000x500/0F0F0E/F9F9F6?text=▶+Click+to+watch+Routing+Engine+Demo&font=inter" alt="Routing Engine Demo Video" width="80%" style="border-radius: 14px; border: 1px solid rgba(15,15,14,0.08);" />
-  </a>
+  <img src="public/routing-demo.gif" alt="Routing Engine Demo" width="80%" style="border-radius: 14px; border: 1px solid rgba(15,15,14,0.08);" />
 </p>
 
 <br/>
