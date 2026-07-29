@@ -76,7 +76,7 @@ export function PlanCards({ plans, currentTier }: PlanCardsProps) {
 
               <div className="mb-6 mt-4">
                 <span className={`text-[44px] font-medium leading-none tracking-[-0.02em] ${isCurrent ? "text-white" : "text-[#0F0F0E]"}`}>
-                  {plan.monthlyPrice === 0 ? "$0" : `$${plan.monthlyPrice.toLocaleString()}`}
+                  {plan.monthlyPrice === 0 ? "$0" : `$${(plan.monthlyPrice / 100).toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`}
                 </span>
                 {plan.monthlyPrice > 0 && (
                   <span className={`text-sm ${isCurrent ? "text-white/50" : "text-[#7A7870]"}`}> /mo</span>
