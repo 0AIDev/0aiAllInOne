@@ -1,9 +1,9 @@
 "use client";
 
-import { useState, useCallback } from "react";
+import { useState, useCallback, useRef, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import { cn } from "@/lib/utils/cn";
-import { Sparkles, Save, Send, Eye } from "lucide-react";
+import { Sparkles, Save, Send, Eye, ChevronDown, Check } from "lucide-react";
 
 const categories = [
   { value: "development", label: "Development" },
@@ -51,10 +51,22 @@ function generateYamlPreview(
 
 export default function NewSkillPage() {
   const router = useRouter();
+  const categoryRef = useRef<HTMLDivElement>(null);
 
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [category, setCategory] = useState("development");
+  const [categoryOpen, setCategoryOpen] = useState(false);
+
+  useEffect(() => {
+    function handleClickOutside(e: MouseEvent) {
+      if (categoryRef.current && !categoryRef.current.contains(e.target as Node)) {
+        setCategoryOpen(false);
+      }
+    }
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, []);
   const [priceCents, setPriceCents] = useState(0);
   const [triggers, setTriggers] = useState("");
   const [content, setContent] = useState("");
@@ -194,21 +206,35 @@ export default function NewSkillPage() {
               >
                 Category
               </label>
-              <select
-                value={category}
-                onChange={(e) => setCategory(e.target.value)}
-                className="w-full rounded-lg border bg-white px-4 py-2.5 text-sm text-[#0F0F0E] outline-none transition-colors focus:border-[#0F0F0E]"
-                style={{
-                  borderColor: "rgba(15,15,14,0.08)",
-                  fontFamily: "'Inter Tight', sans-serif",
-                }}
-              >
-                {categories.map((c) => (
-                  <option key={c.value} value={c.value}>
-                    {c.label}
-                  </option>
-                ))}
-              </select>
+              <div className="relative" ref={categoryRef}>
+                <button
+                  type="button"
+                  onClick={() => setCategoryOpen(!categoryOpen)}
+                  className="flex w-full items-center justify-between rounded-lg border bg-white px-4 py-2.5 text-sm text-[#0F0F0E] outline-none transition-colors"
+                  style={{ borderColor: "rgba(15,15,14,0.08)", fontFamily: "'Inter Tight', sans-serif" }}
+                >
+                  <span>{categories.find((c) => c.value === category)?.label ?? "Select a category"}</span>
+                  <ChevronDown className={`size-4 text-[#7A7870] transition-transform ${categoryOpen ? "rotate-180" : ""}`} />
+                </button>
+                {categoryOpen && (
+                  <div className="absolute z-20 mt-1 w-full rounded-xl border bg-white py-1 shadow-lg" style={{ borderColor: "rgba(15,15,14,0.08)" }}>
+                    {categories.map((c) => (
+                      <button
+                        key={c.value}
+                        type="button"
+                        onClick={() => { setCategory(c.value); setCategoryOpen(false); }}
+                        className={`flex w-full items-center px-4 py-2 text-left text-sm transition-colors ${
+                          category === c.value ? "bg-[rgba(15,15,14,0.06)] font-medium text-[#0F0F0E]" : "text-[#3A3A37] hover:bg-[rgba(15,15,14,0.03)]"
+                        }`}
+                        style={{ fontFamily: "'Inter Tight', sans-serif" }}
+                      >
+                        {c.label}
+                        {category === c.value && <Check className="ml-auto size-3.5 text-[#0F0F0E]" />}
+                      </button>
+                    ))}
+                  </div>
+                )}
+              </div>
             </div>
             <div>
               <label

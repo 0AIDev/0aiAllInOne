@@ -3,6 +3,10 @@ import { verifySession } from "@/lib/auth/auth-options";
 import { prisma } from "@/lib/prisma";
 import { z } from "zod";
 
+const publishSkillSchema = z.object({
+  action: z.literal("publish"),
+});
+
 const updateSkillSchema = z.object({
   title: z.string().min(1).max(200).optional(),
   description: z.string().min(1).optional(),
@@ -83,6 +87,35 @@ export async function PUT(
   const updated = await prisma.skill.update({
     where: { id },
     data: updateData,
+  });
+
+  return NextResponse.json({ skill: updated });
+}
+
+export async function PATCH(
+  request: NextRequest,
+  { params }: { params: Promise<{ id: string }> }
+) {
+  const session = await verifySession();
+  if (!session) return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
+
+  const { id } = await params;
+
+  const skill = await prisma.skill.findUnique({ where: { id } });
+  if (!skill || skill.creatorId !== session.userId) {
+    return NextResponse.json({ error: "Not found" }, { status: 404 });
+  }
+
+  let body: unknown;
+  try { body = await request.json(); }
+  catch { return NextResponse.json({ error: "Invalid JSON" }, { status: 400 }); }
+
+  const parsed = publishSkillSchema.safeParse(body);
+  if (!parsed.success) return NextResponse.json({ error: "Invalid action" }, { status: 400 });
+
+  const updated = await prisma.skill.update({
+    where: { id },
+    data: { status: "PUBLISHED", published: true },
   });
 
   return NextResponse.json({ skill: updated });

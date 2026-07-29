@@ -327,14 +327,31 @@ export function CreatorDashboardClient({
                       </span>
                     </td>
                     <td className="px-5 py-3">
-                      <Link
-                        href={`/dashboard/creator/skills/${skill.id}/edit`}
-                        className="inline-flex items-center gap-1 text-sm font-medium text-[#7A7870] transition-colors hover:text-[#0F0F0E]"
-                        style={{ fontFamily: "'Inter Tight', sans-serif" }}
-                      >
-                        Edit
-                        <ArrowUpRight className="size-3" />
-                      </Link>
+                      <div className="flex items-center gap-2">
+                        {skill.status === "DRAFT" && (
+                          <button
+                            onClick={async () => {
+                              await fetch(`/api/creator/skills/${skill.id}`, {
+                                method: "PATCH",
+                                headers: { "Content-Type": "application/json" },
+                                body: JSON.stringify({ action: "publish" }),
+                              });
+                              window.location.reload();
+                            }}
+                            className="inline-flex items-center gap-1 rounded-md bg-[#0F0F0E] px-2.5 py-1 text-[11px] font-medium text-white transition-opacity hover:opacity-90"
+                          >
+                            Publish
+                          </button>
+                        )}
+                        <Link
+                          href={`/dashboard/creator/skills/${skill.id}/edit`}
+                          className="inline-flex items-center gap-1 text-sm font-medium text-[#7A7870] transition-colors hover:text-[#0F0F0E]"
+                          style={{ fontFamily: "'Inter Tight', sans-serif" }}
+                        >
+                          Edit
+                          <ArrowUpRight className="size-3" />
+                        </Link>
+                      </div>
                     </td>
                   </tr>
                 ))}
