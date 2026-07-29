@@ -1,8 +1,10 @@
 import type { Metadata } from "next";
 import { Navbar } from "@/components/layout/navbar";
 import { Footer } from "@/components/layout/footer";
-import { ArrowDown, Github, Terminal, Monitor } from "lucide-react";
+import { ArrowDown, Github, Terminal } from "lucide-react";
 import Link from "next/link";
+
+const RELEASE_URL = "https://github.com/0AIDev/0aiAllInOne/releases/download/v1.0.0";
 
 export const metadata: Metadata = {
   title: "Download - AI0FY",
@@ -12,22 +14,21 @@ export const metadata: Metadata = {
 const platforms = [
   {
     name: "Windows",
-    icon: Monitor,
+    icon: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M3.5 5.5L11 4v7H3.5V5.5z"/><path d="M11 4l9.5-1.5v7.5H11V4z"/><path d="M3.5 11.5H11v7L3.5 17v-5.5z"/><path d="M11 11.5h9.5V18L11 16.5v-5z"/></svg>`,
     desc: "Windows 10+ (x64)",
-    msi: "AI0FY_1.0.0_x64.msi",
-    exe: "AI0FY_1.0.0_x64.exe",
+    fileName: "AI0FY_1.0.0_x64-setup.exe",
   },
   {
     name: "macOS",
-    icon: Monitor,
+    icon: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M12 20.94c1.5 0 2.75 1.06 4 1.06 3 0 6-8 6-12.22A4.91 4.91 0 0017 5c-2.22 0-4 1.44-5 2-1-.56-2.78-2-5-2a4.9 4.9 0 00-5 4.78C2 14 5 22 8 22c1.25 0 2.5-1.06 4-1.06z"/><path d="M10 2c1 .5 2 2 2 5"/></svg>`,
     desc: "macOS 12+ (Intel & Apple Silicon)",
-    dmg: "AI0FY_1.0.0_x64.dmg",
+    fileName: "AI0FY_1.0.0_x64.dmg",
   },
   {
     name: "Linux",
-    icon: Monitor,
+    icon: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M6 8.32a7.43 7.43 0 0 1 0 7.36"/><path d="M9.46 6.21a11.76 11.76 0 0 1 0 11.58"/><path d="M12.91 4.1a15.92 15.92 0 0 1 .01 15.8"/><path d="M16.37 2a20.16 20.16 0 0 1 0 20"/></svg>`,
     desc: "Ubuntu 20.04+ / Debian 11+ (x64)",
-    deb: "AI0FY_1.0.0_amd64.deb",
+    fileName: "AI0FY_1.0.0_amd64.deb",
   },
 ];
 
@@ -57,23 +58,18 @@ export default function DownloadPage() {
             <div className="mt-12 grid gap-6 sm:grid-cols-3">
               {platforms.map((p) => (
                 <div key={p.name} className="rounded-[14px] border border-[rgba(15,15,14,0.08)] bg-white p-6 text-center transition-all hover:shadow-md">
-                  <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-xl bg-[rgba(15,15,14,0.04)]">
-                    <p className="text-base font-bold text-[#3A3A37]">{p.name}</p>
-                  </div>
-                  <p className="mt-3 text-sm text-[#7A7870]">{p.desc}</p>
-                  <div className="mt-6 space-y-2">
+                  <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-xl bg-[rgba(15,15,14,0.04)]" dangerouslySetInnerHTML={{ __html: p.icon }} />
+                  <p className="mt-3 font-medium text-[#0F0F0E]">{p.name}</p>
+                  <p className="mt-0.5 text-sm text-[#7A7870]">{p.desc}</p>
+                  <div className="mt-6">
                     <a
-                      href={`https://github.com/0AIDev/0aiAllInOne/releases/download/v1.0.0/${p.msi || p.dmg || p.deb || "#"}`}
+                      href={`${RELEASE_URL}/${p.fileName}`}
                       className="inline-flex w-full items-center justify-center gap-2 rounded-[10px] bg-[#0F0F0E] px-5 py-2.5 text-sm font-medium text-white transition-colors hover:bg-[#3A3A37]"
-                      target={p.msi ? undefined : "_blank"}
                     >
                       <ArrowDown className="h-4 w-4" />
                       Download for {p.name}
                     </a>
                   </div>
-                  <p className="mt-3 text-[11px] text-[#7A7870]">
-                    {p.msi ? ".msi installer" : p.dmg ? ".dmg disk image" : ".deb package"}
-                  </p>
                 </div>
               ))}
             </div>

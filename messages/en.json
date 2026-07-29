@@ -2,7 +2,7 @@
   "nav": {
     "features": "Features", "providers": "Providers", "pricing": "Pricing",
     "docs": "Docs", "api": "API", "cli": "CLI",
-    "signIn": "Sign In", "startFree": "Start Free"
+    "signIn": "Sign In", "startFree": "Start Free", "download": "Download"
   },
   "hero": {
     "badge": "Unified API Gateway - 290+ AI models, one endpoint",

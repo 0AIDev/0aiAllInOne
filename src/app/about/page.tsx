@@ -9,12 +9,10 @@ export const metadata: Metadata = {
 };
 
 const team = [
-  { initials: "AL", name: "Alex Liu", role: "Founder & CEO" },
-  { initials: "SM", name: "Sarah Mehta", role: "CTO" },
-  { initials: "JP", name: "James Park", role: "Head of Engineering" },
-  { initials: "KR", name: "Kim Rossi", role: "Head of Product" },
-  { initials: "DT", name: "David Tran", role: "Lead ML Engineer" },
-  { initials: "LW", name: "Lisa Wang", role: "Head of Design" },
+  { initials: "MV", name: "Mattia Vizzi", role: "Founder & CEO" },
+  { initials: "MT", name: "Mateo Torry", role: "Co-founder" },
+  { initials: "LK", name: "Lucy Kon", role: "CTO" },
+  { initials: "SB", name: "Steven Builds", role: "Head of Product" },
 ];
 
 export default function AboutPage() {
