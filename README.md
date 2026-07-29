@@ -98,6 +98,12 @@ The system follows a layered architecture:
 
 ## ✦ API Routes
 
+<p align="center">
+  <img src="https://placehold.co/1000x400/F9F9F6/0F0F0E?text=API+Routes+Overview" alt="API Routes" width="80%" style="border-radius: 14px; border: 1px solid rgba(15,15,14,0.08);" />
+</p>
+
+<br/>
+
 | Method | Route | Description |
 |---|---|---|
 | `POST` | `/v1/chat/completions` | OpenAI-compatible chat completions (rewritten to `/api/v1/chat/completions`) |
@@ -144,6 +150,12 @@ The `model` field accepts either a specific provider model (e.g. `gpt-4o`, `clau
 <br/>
 
 ## ✦ Routing Engine — Deep Dive
+
+<p align="center">
+  <img src="https://placehold.co/1000x500/F9F9F6/0F0F0E?text=Routing+Engine+Flow+Diagram" alt="Routing Engine" width="80%" style="border-radius: 14px; border: 1px solid rgba(15,15,14,0.08);" />
+</p>
+
+<br/>
 
 ### Why 19 Strategies?
 
@@ -401,6 +413,12 @@ Stacked compression pipeline:
 
 ## ✦ Database
 
+<p align="center">
+  <img src="https://placehold.co/1000x600/F9F9F6/0F0F0E?text=Database+Schema+ERD" alt="Database Schema" width="80%" style="border-radius: 14px; border: 1px solid rgba(15,15,14,0.08);" />
+</p>
+
+<br/>
+
 ### Schema (Prisma ORM, SQLite)
 
 ```prisma
@@ -509,6 +527,22 @@ model Payout {
 
 <br/>
 
+## ✦ Demo Video
+
+<p align="center">
+  <a href="#">
+    <img src="https://placehold.co/900x500/F9F9F6/0F0F0E?text=▶+Demo+Video+Placeholder+-+Click+to+Watch&font=inter" alt="Demo Video" width="85%" style="border-radius: 20px; border: 1px solid rgba(15,15,14,0.08); box-shadow: 0 4px 24px rgba(0,0,0,0.04);" />
+  </a>
+  <br/>
+  <sub><em>Click above to watch the full product walkthrough (coming soon)</em></sub>
+</p>
+
+<br/>
+
+---
+
+<br/>
+
 ## ✦ Auth
 
 ### Authentication Flow
@@ -546,6 +580,12 @@ Creates:
 <br/>
 
 ## ✦ i18n — 7 Languages
+
+<p align="center">
+  <img src="https://placehold.co/900x350/F9F9F6/0F0F0E?text=i18n+System+Architecture" alt="i18n Architecture" width="80%" style="border-radius: 14px; border: 1px solid rgba(15,15,14,0.08);" />
+</p>
+
+<br/>
 
 ### Architecture
 
@@ -664,6 +704,12 @@ src/
 <br/>
 
 ## ✦ Multi-Tenancy Model
+
+<p align="center">
+  <img src="https://placehold.co/900x400/F9F9F6/0F0F0E?text=Multi-Tenant+Architecture" alt="Multi-Tenant" width="80%" style="border-radius: 14px; border: 1px solid rgba(15,15,14,0.08);" />
+</p>
+
+<br/>
 
 Each `Tenant` has isolated:
 - **API keys** — Scoped queries via `tenantId` foreign key
