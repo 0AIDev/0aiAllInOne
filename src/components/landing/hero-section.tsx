@@ -28,7 +28,7 @@ export function HeroSection() {
   return (
     <section className="relative flex min-h-[90vh] flex-col items-center justify-center px-4 py-8 sm:px-6 lg:px-8">
       <div className="absolute inset-0 flex items-center justify-center pointer-events-none" aria-hidden="true">
-        <div style={{ width: 'clamp(300px, 80vw, 600px)', height: 'auto' }}>
+        <div style={{ width: 'clamp(250px, 50vw, 450px)', height: 'auto' }}>
           <img src="/hero-bg-logo.svg" alt="" style={{ display: 'block', width: '100%', height: 'auto' }} />
         </div>
       </div>
