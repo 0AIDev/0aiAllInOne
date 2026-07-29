@@ -115,7 +115,7 @@ The system follows a layered architecture:
 ## ✦ API Routes
 
 <p align="center">
-  <img src="https://placehold.co/1000x400/F9F9F6/0F0F0E?text=API+Routes+Overview" alt="API Routes" width="80%" style="border-radius: 14px; border: 1px solid rgba(15,15,14,0.08);" />
+  <img src="public/937shots_so.png" alt="API Routes" width="80%" style="border-radius: 14px; border: 1px solid rgba(15,15,14,0.08);" />
 </p>
 
 <br/>
