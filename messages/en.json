@@ -5,7 +5,7 @@
     "signIn": "Sign In", "startFree": "Start Free", "download": "Download"
   },
   "hero": {
-    "badge": "Unified API Gateway - 290+ AI models, one endpoint",
+    "badge": "290+ AI models, one endpoint",
     "title": "One API.",
     "titleEmphasis": "Every AI model",
     "subtitle": "290+ providers, auto-fallback in milliseconds, zero infrastructure. Drop-in replacement for OpenAI - just change the URL.",
@@ -334,3 +334,4 @@
     "docs": "Docs"
   }
 }
+

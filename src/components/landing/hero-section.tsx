@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
-import { ArrowRight, Circle } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 
 import { cn } from "@/lib/utils/cn";
 import { useScrollReveal } from "@/hooks/use-scroll-reveal";
@@ -36,12 +36,11 @@ export function HeroSection() {
       <div
         ref={badgeRef}
         className={cn(
-          "mb-10 inline-flex items-center gap-2.5 rounded-full border border-[rgba(15,15,14,0.1)] bg-white px-4 py-1.5 text-xs font-medium text-[#3A3A37] transition-all duration-700",
+          "mb-10 inline-flex items-center gap-2.5 rounded-full bg-white px-4 py-1.5 text-xs font-medium text-[#3A3A37] transition-all duration-700",
           badgeVisible ? "translate-y-0 opacity-100" : "translate-y-6 opacity-0"
         )}
       >
-        <Circle className="h-2 w-2 fill-[#10b981] text-[#10b981]" />
-        {t("hero.badge")}
+        <span className="font-semibold text-[#0F0F0E]">Unified API Gateway</span><span className="text-[#7A7870]"> — {t("hero.badge")}</span>
       </div>
 
       {/* Main heading */}
