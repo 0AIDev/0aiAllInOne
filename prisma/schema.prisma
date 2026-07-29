@@ -19,6 +19,8 @@ enum TenantRole {
   OWNER
   ADMIN
   MEMBER
+  MEMBER_FREE
+  MEMBER_PAID
 }
 
 enum SubscriptionStatus {
@@ -121,6 +123,7 @@ model User {
   role          TenantRole  @default(MEMBER)
   isActive      Boolean     @default(true)
   lastLoginAt   DateTime?
+  onboardingCompleted Boolean @default(false)
   totalEarnings        Float       @default(0)
   walletBalance        Float       @default(0)
   stripeConnectId      String?

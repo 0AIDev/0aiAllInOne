@@ -8,7 +8,7 @@ export default async function AdminLayout({
   children: React.ReactNode;
 }) {
   const session = await verifySession();
-  if (!session || session.role === "MEMBER") redirect("/login");
+  if (!session || !["OWNER", "ADMIN"].includes(session.role)) redirect("/login");
 
   return (
     <div className="flex h-screen overflow-hidden">

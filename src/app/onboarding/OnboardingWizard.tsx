@@ -165,7 +165,10 @@ export function OnboardingWizard({
         </button>
         {isLast ? (
           <button
-            onClick={() => router.push("/dashboard")}
+            onClick={async () => {
+              await fetch("/api/auth/onboarding-complete", { method: "POST" });
+              router.push("/dashboard");
+            }}
             className="inline-flex items-center gap-2 rounded-[10px] bg-[#0F0F0E] px-6 py-2.5 text-sm font-medium text-white transition-colors hover:bg-[#3A3A37]"
           >
             {t("onboarding.goToDashboard")}

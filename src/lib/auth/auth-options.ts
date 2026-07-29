@@ -140,13 +140,15 @@ export async function register(params: {
     });
   }
 
+  const role = tenant.planTier === "FREE" ? "MEMBER_FREE" : "MEMBER_PAID";
+
   const user = await prisma.user.create({
     data: {
       email: params.email,
       passwordHash,
       name: params.name,
       tenantId: tenant.id,
-      role: "OWNER",
+      role,
     },
   });
 
