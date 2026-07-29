@@ -22,9 +22,8 @@
 
   <br/>
 
-  <!-- Replace with actual screenshot -->
   <p align="center">
-    <img src="https://placehold.co/1200x630/F9F9F6/0F0F0E?text=AI0FY+Landing&font=inter" alt="AI0FY Hero" width="90%" style="border-radius: 14px; border: 1px solid rgba(15,15,14,0.08);" />
+    <img src="public/171shots_so.png" alt="AI0FY Hero" width="90%" style="border-radius: 14px; border: 1px solid rgba(15,15,14,0.08);" />
   </p>
 
   <br/>
