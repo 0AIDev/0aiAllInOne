@@ -34,13 +34,23 @@ export function PlanCards({ plans, currentTier }: PlanCardsProps) {
     (a, b) => tierOrder.indexOf(a.tier) - tierOrder.indexOf(b.tier)
   );
 
-  async function handleChange(planTier: string) {
-    const res = await fetch("/api/subscription/change-plan", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ planTier }),
-    });
-    if (res.ok) router.refresh();
+  async function handleChange(planTier: string, isUpgrade: boolean) {
+    if (isUpgrade && planTier !== "FREE") {
+      const res = await fetch("/api/stripe/create-checkout", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ planTier }),
+      });
+      const data = await res.json();
+      if (data.url) window.location.href = data.url;
+    } else {
+      const res = await fetch("/api/subscription/change-plan", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ planTier }),
+      });
+      if (res.ok) router.refresh();
+    }
   }
 
   return (
@@ -112,7 +122,7 @@ export function PlanCards({ plans, currentTier }: PlanCardsProps) {
 
               {!isCurrent ? (
                 <button
-                  onClick={() => handleChange(plan.tier)}
+                  onClick={() => handleChange(plan.tier, isUpgrade)}
                   className={`inline-flex w-full items-center justify-center gap-2 rounded-[10px] px-6 py-3 text-sm font-medium transition-colors ${
                     isUpgrade
                       ? "bg-[#0F0F0E] text-white hover:bg-[#3A3A37]"
