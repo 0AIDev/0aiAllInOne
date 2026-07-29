@@ -165,11 +165,11 @@ export function Navbar({ user, className }: NavbarProps) {
           <div className="fixed inset-0 z-50 flex items-center justify-center md:hidden">
             <div className="mx-4 w-full max-w-sm">
               <Squircle cornerRadius={20} cornerSmoothing={1} style={{ background: "rgba(255,255,255,0.85)", backdropFilter: "blur(24px) saturate(180%)", WebkitBackdropFilter: "blur(24px) saturate(180%)", border: "1px solid rgba(15,15,14,0.08)", boxShadow: "0 8px 40px rgba(0,0,0,0.08)" }}>
-                <div className="relative flex flex-col gap-1 px-6 py-8 pt-12" style={{ fontFamily: "'Inter Tight', sans-serif" }}>
+                <div className="relative flex flex-col gap-1 px-6 py-8 pt-8" style={{ fontFamily: "'Inter Tight', sans-serif" }}>
                   <button
                     type="button"
                     onClick={() => setMobileOpen(false)}
-                    className="absolute right-2 top-2 flex h-7 w-7 items-center justify-center rounded-full bg-[#0F0F0E] text-white transition-opacity hover:opacity-80"
+                    className="absolute right-2 top-2 flex h-7 w-7 items-center justify-center text-[#0F0F0E] transition-opacity hover:opacity-60"
                     aria-label="Close menu"
                   >
                     <X className="h-3.5 w-3.5" />
