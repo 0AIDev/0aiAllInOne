@@ -4,7 +4,7 @@ import { Footer } from "@/components/layout/footer";
 import { ArrowDown, Github, Terminal } from "lucide-react";
 import Link from "next/link";
 
-const RELEASE_URL = "https://github.com/0AIDev/0aiAllInOne/releases/download/v1.0.0";
+const RELEASE_URL = "/downloads";
 
 export const metadata: Metadata = {
   title: "Download - AI0FY",
@@ -14,19 +14,19 @@ export const metadata: Metadata = {
 const platforms = [
   {
     name: "Windows",
-    icon: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M3.5 5.5L11 4v7H3.5V5.5z"/><path d="M11 4l9.5-1.5v7.5H11V4z"/><path d="M3.5 11.5H11v7L3.5 17v-5.5z"/><path d="M11 11.5h9.5V18L11 16.5v-5z"/></svg>`,
+    icon: `<svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="#0078D4"><path d="M0 0h11.5v11.5H0V0zm12.5 0H24v11.5H12.5V0zM0 12.5h11.5V24H0V12.5zm12.5 0H24V24H12.5V12.5z"/></svg>`,
     desc: "Windows 10+ (x64)",
     fileName: "AI0FY_1.0.0_x64-setup.exe",
   },
   {
     name: "macOS",
-    icon: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M12 20.94c1.5 0 2.75 1.06 4 1.06 3 0 6-8 6-12.22A4.91 4.91 0 0017 5c-2.22 0-4 1.44-5 2-1-.56-2.78-2-5-2a4.9 4.9 0 00-5 4.78C2 14 5 22 8 22c1.25 0 2.5-1.06 4-1.06z"/><path d="M10 2c1 .5 2 2 2 5"/></svg>`,
+    icon: `<svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none"><path d="M17.9 12.6c.1 3.7 3.3 5 3.4 5s-.5 1.7-1.7 3.4c-1 1.4-2.1 2.8-3.8 2.8-1.6 0-2.2-.9-4-.9-1.9 0-2.5 1-4 1-1.6 0-2.7-1.3-3.8-2.8C2.4 18.3 1.2 14.9 1.3 11.5c0-4.3 2.8-6.4 5.5-6.4 1.6 0 3 1.1 4 1.1 1 0 2.6-1.2 4.4-1 1.2 0 4.6.5 5.4 3.4-.1 0-3.2 1.9-3.1 5.6zM14.4 3.6c.8-1 1.4-2.4 1.2-3.6-1.2 0-2.6.8-3.5 1.8-.8.9-1.5 2.4-1.3 3.8 1.4.1 2.8-.7 3.6-2z"/></svg>`,
     desc: "macOS 12+ (Intel & Apple Silicon)",
     fileName: "AI0FY_1.0.0_x64.dmg",
   },
   {
     name: "Linux",
-    icon: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M6 8.32a7.43 7.43 0 0 1 0 7.36"/><path d="M9.46 6.21a11.76 11.76 0 0 1 0 11.58"/><path d="M12.91 4.1a15.92 15.92 0 0 1 .01 15.8"/><path d="M16.37 2a20.16 20.16 0 0 1 0 20"/></svg>`,
+    icon: `<svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z" fill="#E95420"/><path d="M12.2 15c-1.9 0-3.4-1.5-3.4-3.4 0-1.9 1.5-3.4 3.4-3.4 1.9 0 3.4 1.5 3.4 3.4 0 1.9-1.5 3.4-3.4 3.4zm0-5.1c-.9 0-1.7.8-1.7 1.7s.8 1.7 1.7 1.7 1.7-.8 1.7-1.7-.8-1.7-1.7-1.7z" fill="#fff"/></svg>`,
     desc: "Ubuntu 20.04+ / Debian 11+ (x64)",
     fileName: "AI0FY_1.0.0_amd64.deb",
   },
