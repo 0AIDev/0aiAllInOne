@@ -5,8 +5,8 @@ import { Footer } from "@/components/layout/footer";
 import { ArrowRight, Code, Key, Terminal } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "API Reference - AIStack",
-  description: "AIStack API reference. OpenAI-compatible chat completions endpoint with 30+ providers.",
+  title: "API Reference - AI0FY",
+  description: "AI0FY API reference. OpenAI-compatible chat completions endpoint with 30+ providers.",
 };
 
 export default function ApiReferencePage() {
@@ -39,7 +39,7 @@ export default function ApiReferencePage() {
                 Base URL
               </div>
               <code className="block rounded-[10px] bg-[#F1EFE9] px-4 py-3 text-sm text-[#3A3A37]">
-                https://api.aistack.dev/v1
+                https://api.ai0fy.dev/v1
               </code>
             </div>
 

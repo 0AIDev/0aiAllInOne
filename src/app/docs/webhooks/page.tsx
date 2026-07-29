@@ -4,8 +4,8 @@ import { Footer } from "@/components/layout/footer";
 import { Webhook } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "Webhooks - AIStack",
-  description: "AIStack webhook events and integration guide.",
+  title: "Webhooks - AI0FY",
+  description: "AI0FY webhook events and integration guide.",
 };
 
 const events = [
@@ -23,7 +23,7 @@ const events = [
   },
   {
     event: "rate.limited",
-    description: "Triggered when a request is rate-limited by a provider and AIStack switches to a fallback.",
+    description: "Triggered when a request is rate-limited by a provider and AI0FY switches to a fallback.",
   },
   {
     event: "quota.exceeded",
@@ -66,14 +66,14 @@ export default function WebhooksPage() {
               </em>
             </h1>
             <p className="mt-4 text-lg text-[#3A3A37]">
-              Receive real-time notifications about events happening in your AIStack account.
+              Receive real-time notifications about events happening in your AI0FY account.
               Configure webhook endpoints in your dashboard to get HTTP callbacks for important events.
             </p>
 
             <div className="mt-12">
               <h2 className="text-xl font-medium text-[#0F0F0E]">Event Types</h2>
               <p className="mt-2 text-sm text-[#3A3A37]">
-                AIStack fires webhook events for the following actions:
+                AI0FY fires webhook events for the following actions:
               </p>
 
               <div className="mt-6 overflow-hidden rounded-[14px] border border-[rgba(15,15,14,0.08)]">
@@ -121,7 +121,7 @@ export default function WebhooksPage() {
                   <h3 className="font-medium text-[#0F0F0E]">Configuring Webhooks</h3>
                   <p className="mt-1 text-sm text-[#3A3A37]">
                     You can configure webhook endpoints from the Dashboard &rarr; Webhooks section.
-                    Each endpoint can be filtered by event type. AIStack supports retries with
+                    Each endpoint can be filtered by event type. AI0FY supports retries with
                     exponential backoff for failed deliveries.
                   </p>
                 </div>

@@ -1,5 +1,5 @@
 // ============================================================
-// AIStack — Complete Chat Completions Gateway
+// AI0FY — Complete Chat Completions Gateway
 // Pipeline: Auth → Rate Limit → Quota → Guardrails → Validate
 //   → Sanitize → Task-Route → Session Affinity → Compress
 //   → Resolve Model → P2C Route → Combo Fallback → Execute

@@ -19,7 +19,7 @@ const envSchema = z.object({
 
   // App
   NEXT_PUBLIC_APP_URL: z.string().url().default("http://localhost:3000"),
-  NEXT_PUBLIC_APP_NAME: z.string().default("AIStack"),
+  NEXT_PUBLIC_APP_NAME: z.string().default("AI0FY"),
 
   // Encryption
   PROVIDER_KEY_ENCRYPTION_SECRET: z

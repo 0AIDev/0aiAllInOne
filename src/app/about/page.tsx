@@ -4,8 +4,8 @@ import { Footer } from "@/components/layout/footer";
 import { AboutContent } from "./about-content";
 
 export const metadata: Metadata = {
-  title: "About - AIStack",
-  description: "Learn about AIStack — the universal AI gateway powering 290+ providers.",
+  title: "About - AI0FY",
+  description: "Learn about AI0FY — the universal AI gateway powering 290+ providers.",
 };
 
 const team = [

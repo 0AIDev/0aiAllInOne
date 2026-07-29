@@ -5,8 +5,8 @@ import { Footer } from "@/components/layout/footer";
 import { ArrowRight, BookOpen, Code, Key, Zap } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "Documentation - AIStack",
-  description: "AIStack API documentation. Quick start guides, API reference, and integration examples.",
+  title: "Documentation - AI0FY",
+  description: "AI0FY API documentation. Quick start guides, API reference, and integration examples.",
 };
 
 const sections = [
@@ -22,7 +22,7 @@ const sections = [
   },
   {
     title: "API Reference",
-    description: "Full OpenAPI 3.1 specification for the AIStack API. Drop-in compatible with the OpenAI SDK.",
+    description: "Full OpenAPI 3.1 specification for the AI0FY API. Drop-in compatible with the OpenAI SDK.",
     icon: Code,
     links: [
       { label: "OpenAPI Spec (JSON)", href: "/api/v1/openapi.json" },
@@ -42,7 +42,7 @@ const sections = [
   },
   {
     title: "Guides",
-    description: "Step-by-step guides for common integrations and workflows with AIStack.",
+    description: "Step-by-step guides for common integrations and workflows with AI0FY.",
     icon: BookOpen,
     links: [
       { label: "OpenAI SDK integration", href: "#" },
@@ -72,7 +72,7 @@ export default function DocsPage() {
             </em>
           </h1>
           <p className="mt-4 text-lg text-[#3A3A37]">
-            Everything you need to integrate AIStack into your application.
+            Everything you need to integrate AI0FY into your application.
           </p>
 
           <div className="mt-12 grid gap-6 sm:grid-cols-2">
@@ -110,7 +110,7 @@ export default function DocsPage() {
             </p>
             <div className="mt-4 overflow-x-auto rounded-[10px] bg-[#0F0F0E] p-5 text-left">
               <code className="text-sm text-[#B8B5AE]">
-                <span className="text-emerald-400">$</span> curl https://api.aistack.dev/v1/chat/completions \<br />
+                <span className="text-emerald-400">$</span> curl https://api.ai0fy.dev/v1/chat/completions \<br />
                 {"  "}-H <span className="text-amber-300">&quot;Authorization: Bearer YOUR_API_KEY&quot;</span> \<br />
                 {"  "}-H <span className="text-amber-300">&quot;Content-Type: application/json&quot;</span> \<br />
                 {"  "}-d <span className="text-amber-300">&apos;{"{"}&quot;model&quot;: &quot;gpt-4o&quot;, &quot;messages&quot;: [{"{"}&quot;role&quot;: &quot;user&quot;, &quot;content&quot;: &quot;Hello!&quot;{"}"}]{"}"}&apos;</span>

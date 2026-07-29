@@ -4,7 +4,7 @@ import { Navbar } from "@/components/layout/navbar";
 import { Footer } from "@/components/layout/footer";
 
 export const metadata: Metadata = {
-  title: "Features - AIStack",
+  title: "Features - AI0FY",
   description: "Everything you need to ship AI features. Auto-fallback, prompt compression, guardrails, multi-tenant, and more.",
 };
 

@@ -53,7 +53,7 @@ export const logger = pino({
     ? {
         pid: process.pid,
         hostname: process.env.HOSTNAME ?? undefined,
-        service: "aistack",
+        service: "ai0fy",
         env: process.env.NODE_ENV,
       }
     : undefined,

@@ -1,5 +1,5 @@
 // ============================================================
-// AIStack — RTK + Caveman Compression
+// AI0FY — RTK + Caveman Compression
 // Pattern: OmniRoute open-sse/services/compression/
 // ============================================================
 

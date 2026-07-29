@@ -1,7 +1,7 @@
 #!/bin/bash
 set -e
 
-echo "=== AIStack Production Setup ==="
+echo "=== AI0FY Production Setup ==="
 
 # Check requirements
 command -v docker >/dev/null 2>&1 || { echo "Docker is required but not installed. Aborting."; exit 1; }

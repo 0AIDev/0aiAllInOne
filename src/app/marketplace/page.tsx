@@ -6,7 +6,7 @@ import { prisma } from "@/lib/prisma";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "Marketplace - AIStack",
+  title: "Marketplace - AI0FY",
   description: "Discover and install AI skills created by the community. Browse, buy, and use skills for your AI agents.",
 };
 

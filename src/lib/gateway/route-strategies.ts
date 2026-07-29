@@ -1,5 +1,5 @@
 // ============================================================
-// AIStack — Advanced Routing Strategies (OmniRoute: 19 strategies)
+// AI0FY — Advanced Routing Strategies (OmniRoute: 19 strategies)
 // round-robin, weighted, fill-first, priority, p2c, fusion
 // ============================================================
 

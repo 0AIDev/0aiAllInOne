@@ -1,5 +1,5 @@
 // ============================================================
-// AIStack — Memory Framework (OmniRoute memory + vector store)
+// AI0FY — Memory Framework (OmniRoute memory + vector store)
 // Conversation memory with embedding-based retrieval
 // ============================================================
 

@@ -3,15 +3,15 @@ import { Navbar } from "@/components/layout/navbar";
 import { Footer } from "@/components/layout/footer";
 
 export const metadata: Metadata = {
-  title: "Examples - AIStack",
-  description: "Code examples for integrating AIStack in various programming languages.",
+  title: "Examples - AI0FY",
+  description: "Code examples for integrating AI0FY in various programming languages.",
 };
 
 const examples = [
   {
     title: "Basic Chat Completion (curl)",
     lang: "bash",
-    code: `curl https://api.aistack.dev/v1/chat/completions \\
+    code: `curl https://api.ai0fy.dev/v1/chat/completions \\
   -H "Authorization: Bearer YOUR_API_KEY" \\
   -H "Content-Type: application/json" \\
   -d '{
@@ -24,9 +24,9 @@ const examples = [
   {
     title: "Streaming Chat (Python)",
     lang: "python",
-    code: `from aistack import AIStack
+    code: `from ai0fy import AI0FY
 
-client = AIStack(api_key="YOUR_API_KEY")
+client = AI0FY(api_key="YOUR_API_KEY")
 
 stream = client.chat.completions.create(
     model="gpt-4o",
@@ -40,9 +40,9 @@ for chunk in stream:
   {
     title: "Multi-Provider Fallback (TypeScript)",
     lang: "typescript",
-    code: `import { AIStack } from "aistack";
+    code: `import { AI0FY } from "ai0fy";
 
-const client = new AIStack({
+const client = new AI0FY({
   apiKey: "YOUR_API_KEY",
   fallbacks: ["anthropic/claude-3", "google/gemini-pro"],
 });
@@ -57,9 +57,9 @@ console.log(response.choices[0].message.content);`,
   {
     title: "Prompt Compression (Python)",
     lang: "python",
-    code: `from aistack import AIStack
+    code: `from ai0fy import AI0FY
 
-client = AIStack(api_key="YOUR_API_KEY")
+client = AI0FY(api_key="YOUR_API_KEY")
 
 response = client.chat.completions.create(
     model="gpt-4o",
@@ -92,7 +92,7 @@ export default function ExamplesPage() {
               </em>
             </h1>
             <p className="mt-4 text-lg text-[#3A3A37]">
-              Ready-to-use code examples for common AIStack integration scenarios.
+              Ready-to-use code examples for common AI0FY integration scenarios.
             </p>
 
             <div className="mt-12 space-y-6">

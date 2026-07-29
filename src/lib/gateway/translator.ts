@@ -1,5 +1,5 @@
 // ============================================================
-// AIStack — Format Translator (OmniRoute open-sse/translator/)
+// AI0FY — Format Translator (OmniRoute open-sse/translator/)
 // OpenAI ↔ Claude ↔ Gemini ↔ Responses API
 // ============================================================
 

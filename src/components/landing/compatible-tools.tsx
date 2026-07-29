@@ -156,13 +156,13 @@ export function CompatibleTools() {
             {/* Body */}
             <div className="px-5 py-5">
               <p className="mb-3 font-mono text-xs text-white/30">
-                # Configure your AI tool to use AIStack:
+                # Configure your AI tool to use AI0FY:
               </p>
               <code className="block font-mono text-sm leading-relaxed text-white">
                 <span className="text-[#FFBD2E]">export</span>{" "}
                 <span className="text-[#5AF78E]">OPENAI_BASE_URL</span>
                 <span className="text-white">=</span>
-                <span className="text-[#57C7FF]">https://api.aistack.dev/v1</span>
+                <span className="text-[#57C7FF]">https://api.ai0fy.dev/v1</span>
               </code>
               <p className="mt-4 font-mono text-xs text-white/20">
                 {t("compatible.note")}

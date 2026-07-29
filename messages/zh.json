@@ -28,7 +28,7 @@
     "card1Title": "自动故障转移",
     "card1Desc": "如果某个提供商失败，下一个会在毫秒内接管。零停机时间。",
     "card2Title": "智能路由",
-    "card2Desc": "18种策略。将模型设置为'auto'，让AIStack为每个请求选择最佳提供商。",
+    "card2Desc": "18种策略。将模型设置为'auto'，让AI0FY为每个请求选择最佳提供商。",
     "card3Title": "提示词压缩",
     "card3Desc": "RTK + Caveman 叠加压缩。最多节省89%的token。",
     "card4Title": "多租户",
@@ -48,7 +48,7 @@
     "step2Title": "获取API密钥",
     "step2Desc": "你的密钥即时就绪，可在仪表板中配置。",
     "step3Title": "开始构建",
-    "step3Desc": "将你的应用指向 api.aistack.dev/v1。每个模型都只需一个端点。"
+    "step3Desc": "将你的应用指向 api.ai0fy.dev/v1。每个模型都只需一个端点。"
   },
   "cta": {
     "title": "开始构建。",
@@ -63,12 +63,12 @@
     "start": "开始"
   },
   "why": {
-    "tag": "为什么选择AIStack",
+    "tag": "为什么选择AI0FY",
     "title": "每个痛点都有",
     "titleEmphasis": "内置解决方案",
     "subtitle": "停止为单个API订阅支付过高费用。一个套餐取代数十个登录、配额和发票。",
     "painHeader": "日常痛点",
-    "fixHeader": "AIStack的解决方案"
+    "fixHeader": "AI0FY的解决方案"
   },
   "compatible": {
     "tag": "即插即用兼容",
@@ -168,7 +168,7 @@
     "tag": "智能路由",
     "title": "将你的模型设置为",
     "titleEmphasis": "auto",
-    "subtitle": "一个别名，背后290+个提供商。零配置。AIStack实时评估每个连接的12个因素。",
+    "subtitle": "一个别名，背后290+个提供商。零配置。AI0FY实时评估每个连接的12个因素。",
     "strategiesLabel": "19种策略",
     "preset1Label": "平衡默认",
     "preset1Desc": "坚持使用您上次使用良好的提供商。失败时自动接管。",
@@ -236,8 +236,8 @@
     "error": "注册失败"
   },
   "about": {
-    "title": "关于AIStack",
-    "description": "AIStack是一个统一API网关，通过单一端点连接290多个AI提供商。专为需要可靠性、速度和灵活性而无需管理多个API复杂性的团队构建。",
+    "title": "关于AI0FY",
+    "description": "AI0FY是一个统一API网关，通过单一端点连接290多个AI提供商。专为需要可靠性、速度和灵活性而无需管理多个API复杂性的团队构建。",
     "mission": "我们的使命",
     "missionDesc": "让AI基础设施成为无需操心的事情。我们相信开发人员应该把时间花在构建上，而不是管理API集成。",
     "team": "我们的团队",
@@ -248,7 +248,7 @@
     "subtitle": "我们随时为你提供帮助。选择最适合你需求的选项。",
     "email": "电子邮件",
     "emailDesc": "如有一般咨询，请发送邮件至",
-    "emailLink": "hello@aistack.dev",
+    "emailLink": "hello@ai0fy.dev",
     "docs": "文档",
     "docsDesc": "查看我们的完整文档，获取详细指南和API参考。",
     "docsLink": "访问文档",
@@ -261,28 +261,28 @@
   },
   "faq": {
     "title": "常见问题",
-    "q1": "什么是AIStack？",
-    "a1": "AIStack是一个统一API网关，通过单一端点让你访问来自不同提供商的290多个AI模型。它提供智能路由、自动故障转移和内置安全功能。",
+    "q1": "什么是AI0FY？",
+    "a1": "AI0FY是一个统一API网关，通过单一端点让你访问来自不同提供商的290多个AI模型。它提供智能路由、自动故障转移和内置安全功能。",
     "q2": "需要信用卡才能开始吗？",
     "a2": "不需要。我们的免费套餐无需信用卡。你可以立即开始发送请求，只有在超出免费额度时才需要付费。",
     "q3": "自动故障转移如何工作？",
-    "a3": "如果某个AI提供商无响应或返回错误，AIStack会在毫秒内自动将你的请求重定向到下一个最佳可用提供商，确保零停机时间。",
+    "a3": "如果某个AI提供商无响应或返回错误，AI0FY会在毫秒内自动将你的请求重定向到下一个最佳可用提供商，确保零停机时间。",
     "q4": "是否兼容OpenAI API？",
-    "a4": "是的，AIStack是OpenAI的直接替代品。只需将基础URL更改为api.aistack.dev/v1即可与现有的OpenAI客户端库配合使用。",
+    "a4": "是的，AI0FY是OpenAI的直接替代品。只需将基础URL更改为api.ai0fy.dev/v1即可与现有的OpenAI客户端库配合使用。",
     "q5": "你们接受哪些支付方式？",
     "a5": "我们接受主流信用卡/借记卡（Visa、Mastercard、American Express），即将支持PayPal和加密货币。",
     "q6": "提示词压缩如何工作？",
     "a6": "我们使用RTK + Caveman叠加压缩技术，可将提示词大小减少多达89%，从而节省token并显著降低成本。"
   },
   "onboarding": {
-    "welcome": "欢迎使用AIStack",
+    "welcome": "欢迎使用AI0FY",
     "welcomeDesc": "你只需几分钟即可连接290多个AI模型。让我们开始设置。",
     "step1Title": "创建账户",
     "step1Desc": "免费注册，无需信用卡。",
     "step2Title": "获取API密钥",
     "step2Desc": "你的唯一密钥将自动生成。请安全保存。",
     "step3Title": "配置端点",
-    "step3Desc": "将你的应用指向 api.aistack.dev/v1 并开始发送请求。",
+    "step3Desc": "将你的应用指向 api.ai0fy.dev/v1 并开始发送请求。",
     "step4Title": "监控与优化",
     "step4Desc": "使用仪表板监控使用情况、性能和成本。根据需要调整路由策略。",
     "cta": "前往仪表板",

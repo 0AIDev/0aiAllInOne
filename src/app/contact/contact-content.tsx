@@ -25,8 +25,8 @@ export function ContactContent() {
               <div>
                 <h3 className="font-medium text-[#0F0F0E]">{t("contact.email")}</h3>
                 <p className="mt-1 text-sm text-[#7A7870]">
-                  <a href="mailto:hello@aistack.dev" className="text-[#0F0F0E] underline underline-offset-2 decoration-[rgba(15,15,14,0.15)] hover:decoration-[rgba(15,15,14,0.3)]">
-                    hello@aistack.dev
+                  <a href="mailto:hello@ai0fy.dev" className="text-[#0F0F0E] underline underline-offset-2 decoration-[rgba(15,15,14,0.15)] hover:decoration-[rgba(15,15,14,0.3)]">
+                    hello@ai0fy.dev
                   </a>
                 </p>
                 <p className="mt-0.5 text-sm text-[#7A7870]">{t("contact.emailDesc")}</p>
@@ -42,8 +42,8 @@ export function ContactContent() {
               <div>
                 <h3 className="font-medium text-[#0F0F0E]">{t("contact.twitter")}</h3>
                 <p className="mt-1 text-sm text-[#7A7870]">
-                  <a href="https://x.com/aistack_dev" target="_blank" rel="noopener noreferrer" className="text-[#0F0F0E] underline underline-offset-2 decoration-[rgba(15,15,14,0.15)] hover:decoration-[rgba(15,15,14,0.3)]">
-                    @aistack_dev
+                  <a href="https://x.com/ai0fy_dev" target="_blank" rel="noopener noreferrer" className="text-[#0F0F0E] underline underline-offset-2 decoration-[rgba(15,15,14,0.15)] hover:decoration-[rgba(15,15,14,0.3)]">
+                    @ai0fy_dev
                   </a>
                 </p>
                 <p className="mt-0.5 text-sm text-[#7A7870]">{t("contact.twitterDesc")}</p>
@@ -59,8 +59,8 @@ export function ContactContent() {
               <div>
                 <h3 className="font-medium text-[#0F0F0E]">{t("contact.discord")}</h3>
                 <p className="mt-1 text-sm text-[#7A7870]">
-                  <a href="https://discord.gg/aistack" target="_blank" rel="noopener noreferrer" className="text-[#0F0F0E] underline underline-offset-2 decoration-[rgba(15,15,14,0.15)] hover:decoration-[rgba(15,15,14,0.3)]">
-                    discord.gg/aistack
+                  <a href="https://discord.gg/ai0fy" target="_blank" rel="noopener noreferrer" className="text-[#0F0F0E] underline underline-offset-2 decoration-[rgba(15,15,14,0.15)] hover:decoration-[rgba(15,15,14,0.3)]">
+discord.gg/ai0fy
                   </a>
                 </p>
                 <p className="mt-0.5 text-sm text-[#7A7870]">{t("contact.discordDesc")}</p>

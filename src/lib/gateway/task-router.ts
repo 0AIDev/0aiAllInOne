@@ -1,5 +1,5 @@
 // ============================================================
-// AIStack — Task-Aware Router (OmniRoute T05)
+// AI0FY — Task-Aware Router (OmniRoute T05)
 // Semantic detection: code-gen, reasoning, chat, search → best model
 // ============================================================
 

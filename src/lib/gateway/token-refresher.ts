@@ -1,5 +1,5 @@
 // ============================================================
-// AIStack — OAuth Token Refresher
+// AI0FY — OAuth Token Refresher
 // Auto-refresh expired provider tokens (OmniRoute refreshCredentials)
 // ============================================================
 

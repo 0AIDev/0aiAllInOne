@@ -61,7 +61,7 @@ export function DashboardSidebar({ email, isAdmin }: DashboardSidebarProps) {
           href="/dashboard"
           className="text-base font-semibold tracking-tight text-[#0F0F0E]"
         >
-          AIStack
+          AI0FY
         </Link>
       </div>
 

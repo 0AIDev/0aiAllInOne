@@ -2,8 +2,8 @@ import Link from "next/link";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Privacy Policy - AIStack",
-  description: "AIStack Privacy Policy",
+  title: "Privacy Policy - AI0FY",
+  description: "AI0FY Privacy Policy",
 };
 
 export default function PrivacyPage() {
@@ -115,8 +115,8 @@ export default function PrivacyPage() {
             <p>
               If you have questions about this privacy policy or our data practices, please
               contact us at{" "}
-              <a href="mailto:privacy@aistack.dev" className="underline underline-offset-4 transition-colors hover:text-[#0F0F0E]">
-                privacy@aistack.dev
+              <a href="mailto:privacy@ai0fy.dev" className="underline underline-offset-4 transition-colors hover:text-[#0F0F0E]">
+privacy@ai0fy.dev
               </a>.
             </p>
           </section>

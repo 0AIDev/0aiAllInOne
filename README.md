@@ -7,7 +7,7 @@
   <br/>
 
   <p align="center">
-    <strong>AIStack</strong> — Universal AI Gateway · Multi-Provider Fallback · Smart Routing · Prompt Compression
+    <strong>AI0FY</strong> — Universal AI Gateway · Multi-Provider Fallback · Smart Routing · Prompt Compression
   </p>
 
   <br/>
@@ -24,7 +24,7 @@
 
   <!-- Replace with actual screenshot -->
   <p align="center">
-    <img src="https://placehold.co/1200x630/F9F9F6/0F0F0E?text=AIStack+Landing&font=inter" alt="AIStack Hero" width="90%" style="border-radius: 14px; border: 1px solid rgba(15,15,14,0.08);" />
+    <img src="https://placehold.co/1200x630/F9F9F6/0F0F0E?text=AI0FY+Landing&font=inter" alt="AI0FY Hero" width="90%" style="border-radius: 14px; border: 1px solid rgba(15,15,14,0.08);" />
   </p>
 
   <br/>
@@ -47,7 +47,7 @@
 
 ## ✦ Overview
 
-**AIStack** is a production-ready, multi-tenant AI Gateway SaaS built with Next.js 15.5. It provides a **unified API endpoint** that connects to over **290 AI providers** with automatic fallback, intelligent routing, prompt compression, and enterprise-grade reliability — all wrapped in a beautiful, minimal interface inspired by TranscriptMagic.
+**AI0FY** is a production-ready, multi-tenant AI Gateway SaaS built with Next.js 15.5. It provides a **unified API endpoint** that connects to over **290 AI providers** with automatic fallback, intelligent routing, prompt compression, and enterprise-grade reliability — all wrapped in a beautiful, minimal interface inspired by TranscriptMagic.
 
 <br/>
 

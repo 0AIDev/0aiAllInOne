@@ -22,7 +22,7 @@ export function initTelemetry(): void {
   }
 
   const resource = resourceFromAttributes({
-    [SEMRESATTRS_SERVICE_NAME]: "aistack",
+    [SEMRESATTRS_SERVICE_NAME]: "ai0fy",
     [SEMRESATTRS_SERVICE_VERSION]: process.env.APP_VERSION ?? "0.1.0",
     [SEMRESATTRS_DEPLOYMENT_ENVIRONMENT]: process.env.NODE_ENV ?? "development",
   });

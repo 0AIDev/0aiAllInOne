@@ -28,7 +28,7 @@
     "card1Title": "Fallback Automático",
     "card1Desc": "Si un proveedor falla, el siguiente toma el control en milisegundos. Cero tiempo de inactividad.",
     "card2Title": "Enrutamiento Inteligente",
-    "card2Desc": "18 estrategias. Configura el modelo en 'auto' y deja que AIStack elija el mejor proveedor para cada solicitud.",
+    "card2Desc": "18 estrategias. Configura el modelo en 'auto' y deja que AI0FY elija el mejor proveedor para cada solicitud.",
     "card3Title": "Compresión de Prompt",
     "card3Desc": "Compresión apilada RTK + Caveman. Ahorra hasta un 89% en tokens.",
     "card4Title": "Multi-Tenant",
@@ -48,7 +48,7 @@
     "step2Title": "Obtén tu clave API",
     "step2Desc": "Tu clave está lista al instante. Configúrala desde el panel.",
     "step3Title": "Empieza a construir",
-    "step3Desc": "Apunta tu app a api.aistack.dev/v1. Cada modelo está a un endpoint de distancia."
+    "step3Desc": "Apunta tu app a api.ai0fy.dev/v1. Cada modelo está a un endpoint de distancia."
   },
   "cta": {
     "title": "Empieza a construir.",
@@ -63,12 +63,12 @@
     "start": "Para Empezar"
   },
   "why": {
-    "tag": "Por Qué AIStack",
+    "tag": "Por Qué AI0FY",
     "title": "Cada problema tiene una",
     "titleEmphasis": "solución integrada",
     "subtitle": "Deja de pagar de más por suscripciones API individuales. Un plan reemplaza docenas de inicios de sesión, cuotas y facturas.",
     "painHeader": "El problema diario",
-    "fixHeader": "Cómo AIStack lo soluciona"
+    "fixHeader": "Cómo AI0FY lo soluciona"
   },
   "compatible": {
     "tag": "Compatible Drop-in",
@@ -168,7 +168,7 @@
     "tag": "Enrutamiento Inteligente",
     "title": "Configura tu modelo en",
     "titleEmphasis": "auto",
-    "subtitle": "Un alias, 290+ proveedores detrás. Sin configuración. AIStack evalúa cada conexión en vivo en 12 factores.",
+    "subtitle": "Un alias, 290+ proveedores detrás. Sin configuración. AI0FY evalúa cada conexión en vivo en 12 factores.",
     "strategiesLabel": "19 Estrategias",
     "preset1Label": "Predeterminado Equilibrado",
     "preset1Desc": "Se mantiene en tu último proveedor bueno. Asume automáticamente en caso de fallo.",
@@ -236,8 +236,8 @@
     "error": "Registro fallido"
   },
   "about": {
-    "title": "Acerca de AIStack",
-    "description": "AIStack es la puerta de enlace API unificada que conecta más de 290 proveedores de IA a través de un solo endpoint. Construido para equipos que necesitan fiabilidad, velocidad y flexibilidad sin la complejidad de gestionar múltiples API.",
+    "title": "Acerca de AI0FY",
+    "description": "AI0FY es la puerta de enlace API unificada que conecta más de 290 proveedores de IA a través de un solo endpoint. Construido para equipos que necesitan fiabilidad, velocidad y flexibilidad sin la complejidad de gestionar múltiples API.",
     "mission": "Nuestra misión",
     "missionDesc": "Hacer que la infraestructura de IA sea una ocurrencia tardía. Creemos que los desarrolladores deberían pasar su tiempo construyendo, no gestionando integraciones de API.",
     "team": "Nuestro equipo",
@@ -248,7 +248,7 @@
     "subtitle": "Estamos aquí para ayudarte. Elige la opción que mejor se adapte a tus necesidades.",
     "email": "Correo electrónico",
     "emailDesc": "Para consultas generales, envíanos un correo a",
-    "emailLink": "hello@aistack.dev",
+    "emailLink": "hello@ai0fy.dev",
     "docs": "Documentación",
     "docsDesc": "Consulta nuestra documentación completa para guías detalladas y referencias de API.",
     "docsLink": "Visitar Docs",
@@ -261,28 +261,28 @@
   },
   "faq": {
     "title": "Preguntas Frecuentes",
-    "q1": "¿Qué es AIStack?",
-    "a1": "AIStack es una puerta de enlace API unificada que te da acceso a más de 290 modelos de IA de diferentes proveedores a través de un único endpoint. Proporciona enrutamiento inteligente, fallback automático y funciones de seguridad integradas.",
+    "q1": "¿Qué es AI0FY?",
+    "a1": "AI0FY es una puerta de enlace API unificada que te da acceso a más de 290 modelos de IA de diferentes proveedores a través de un único endpoint. Proporciona enrutamiento inteligente, fallback automático y funciones de seguridad integradas.",
     "q2": "¿Necesito una tarjeta de crédito para empezar?",
     "a2": "No. Nuestro nivel gratuito no requiere tarjeta de crédito. Puedes empezar a hacer solicitudes de inmediato y solo pagar cuando superes los límites gratuitos.",
     "q3": "¿Cómo funciona el fallback automático?",
-    "a3": "Si un proveedor de IA no responde o devuelve un error, AIStack redirige automáticamente tu solicitud al siguiente mejor proveedor disponible en milisegundos, garantizando cero tiempo de inactividad.",
+    "a3": "Si un proveedor de IA no responde o devuelve un error, AI0FY redirige automáticamente tu solicitud al siguiente mejor proveedor disponible en milisegundos, garantizando cero tiempo de inactividad.",
     "q4": "¿Es compatible con la API de OpenAI?",
-    "a4": "Sí, AIStack es un reemplazo directo de OpenAI. Solo necesitas cambiar la URL base a api.aistack.dev/v1 para que funcione con las bibliotecas cliente existentes de OpenAI.",
+    "a4": "Sí, AI0FY es un reemplazo directo de OpenAI. Solo necesitas cambiar la URL base a api.ai0fy.dev/v1 para que funcione con las bibliotecas cliente existentes de OpenAI.",
     "q5": "¿Qué métodos de pago aceptan?",
     "a5": "Aceptamos tarjetas de crédito/débito principales (Visa, Mastercard, American Express) y próximamente PayPal y criptomonedas.",
     "q6": "¿Cómo funciona la compresión de prompts?",
     "a6": "Usamos compresión apilada RTK + Caveman para reducir el tamaño de tus prompts hasta en un 89%, lo que te ahorra tokens y reduce significativamente los costos."
   },
   "onboarding": {
-    "welcome": "Bienvenido a AIStack",
+    "welcome": "Bienvenido a AI0FY",
     "welcomeDesc": "Estás a solo minutos de distancia de conectarte a más de 290 modelos de IA. Vamos a configurarlo.",
     "step1Title": "Crea tu cuenta",
     "step1Desc": "Regístrate gratis. Sin tarjeta de crédito requerida.",
     "step2Title": "Obtén tu clave API",
     "step2Desc": "Tu clave única se genera automáticamente. Guárdala de forma segura.",
     "step3Title": "Configura tu endpoint",
-    "step3Desc": "Apunta tu aplicación a api.aistack.dev/v1 y comienza a hacer solicitudes.",
+    "step3Desc": "Apunta tu aplicación a api.ai0fy.dev/v1 y comienza a hacer solicitudes.",
     "step4Title": "Monitorea y optimiza",
     "step4Desc": "Usa el panel para monitorear uso, rendimiento y costos. Ajusta las estrategias de enrutamiento según sea necesario.",
     "cta": "Ir al Panel",

@@ -5,7 +5,7 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-    container_name: aistack-app
+    container_name: ai0fy-app
     restart: unless-stopped
     ports:
       - "${PORT:-3000}:3000"
@@ -17,7 +17,7 @@ services:
       redis:
         condition: service_started
     networks:
-      - aistack-network
+      - ai0fy-network
     deploy:
       resources:
         limits:
@@ -27,20 +27,20 @@ services:
 
   postgres:
     image: postgres:16-alpine
-    container_name: aistack-postgres
+    container_name: ai0fy-postgres
     restart: unless-stopped
     ports:
       - "${POSTGRES_PORT:-5432}:5432"
     environment:
-      POSTGRES_USER: ${POSTGRES_USER:-aistack}
-      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-aistack_secret}
-      POSTGRES_DB: ${POSTGRES_DB:-aistack}
+      POSTGRES_USER: ${POSTGRES_USER:-ai0fy}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-ai0fy_secret}
+      POSTGRES_DB: ${POSTGRES_DB:-ai0fy}
     volumes:
       - postgres-data:/var/lib/postgresql/data
     networks:
-      - aistack-network
+      - ai0fy-network
     healthcheck:
-      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER:-aistack} -d ${POSTGRES_DB:-aistack}"]
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER:-ai0fy} -d ${POSTGRES_DB:-ai0fy}"]
       interval: 10s
       timeout: 5s
       retries: 5
@@ -51,7 +51,7 @@ services:
 
   redis:
     image: redis:7-alpine
-    container_name: aistack-redis
+    container_name: ai0fy-redis
     restart: unless-stopped
     ports:
       - "${REDIS_PORT:-6379}:6379"
@@ -59,7 +59,7 @@ services:
     volumes:
       - redis-data:/data
     networks:
-      - aistack-network
+      - ai0fy-network
     deploy:
       resources:
         limits:
@@ -69,7 +69,7 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-    container_name: aistack-migrate
+    container_name: ai0fy-migrate
     command: npx prisma migrate deploy
     env_file:
       - .env.production
@@ -77,12 +77,12 @@ services:
       postgres:
         condition: service_healthy
     networks:
-      - aistack-network
+      - ai0fy-network
     profiles:
       - setup
 
 networks:
-  aistack-network:
+  ai0fy-network:
     driver: bridge
 
 volumes:

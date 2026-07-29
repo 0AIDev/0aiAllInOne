@@ -1,5 +1,5 @@
 // ============================================================
-// AIStack — Circuit Breaker System
+// AI0FY — Circuit Breaker System
 // Pattern: OmniRoute domain_circuit_breakers
 // ============================================================
 

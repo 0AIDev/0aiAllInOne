@@ -44,7 +44,7 @@ export function AdminSidebar({ email }: AdminSidebarProps) {
         </span>
         <div>
           <Link href="/admin" className="text-base font-semibold tracking-tight text-[#0F0F0E]">
-            AIStack
+            AI0FY
           </Link>
           <p className="text-[10px] font-medium uppercase tracking-wider text-[#7A7870]">Admin</p>
         </div>

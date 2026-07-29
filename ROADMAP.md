@@ -1,4 +1,4 @@
-# AIStack — Roadmap & Next Modules
+# AI0FY — Roadmap & Next Modules
 
 ## Phase 1: Foundation (Current) ✅
 - [x] Multi-tenant architecture with Prisma + PostgreSQL
@@ -171,7 +171,7 @@
              │  POST /v1/chat/completions
              ▼
 ┌────────────────────────────────────────────────────────────────┐
-│                     AIStack Gateway                            │
+│                     AI0FY Gateway                            │
 │  ┌──────────┐  ┌──────────┐  ┌──────────┐  ┌───────────────┐ │
 │  │ Auth     │→│ Rate     │→│ Quota    │→│ Model         │ │
 │  │ (API Key)│  │ Limiter  │  │ Check    │  │ Validation    │ │

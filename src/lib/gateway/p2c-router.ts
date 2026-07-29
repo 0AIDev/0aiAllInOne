@@ -1,5 +1,5 @@
 // ============================================================
-// AIStack — P2C (Power of Two Choices) Credential Selection
+// AI0FY — P2C (Power of Two Choices) Credential Selection
 // Pattern: OmniRoute src/sse/services/auth.ts
 // ============================================================
 

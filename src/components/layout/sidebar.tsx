@@ -116,7 +116,7 @@ export function Sidebar({ isAdmin, currentPath, email, className }: SidebarProps
             href="/dashboard"
             className="font-['Inter_Tight'] text-base font-semibold tracking-tight text-[#0F0F0E]"
           >
-            AIStack
+            AI0FY
           </Link>
         </div>
 

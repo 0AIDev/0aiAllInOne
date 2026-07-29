@@ -1,5 +1,5 @@
 // ============================================================
-// AIStack — Shadow Router (OmniRoute shadow routing)
+// AI0FY — Shadow Router (OmniRoute shadow routing)
 // Fire-and-forget parallel dispatch for metrics comparison
 // ============================================================
 

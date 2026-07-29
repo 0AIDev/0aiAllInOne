@@ -1,10 +1,10 @@
 /*
-  AIStack — In-App AI Skill Optimizer Prompt
+  AI0FY — In-App AI Skill Optimizer Prompt
   Used by the Skill Builder when user clicks "Optimize with AI"
   This prompt is sent to the LLM with the user's draft content.
 */
 
-export const SKILL_OPTIMIZER_PROMPT = `You are a "Skill Monetization Expert AI" for the AIStack Creator Marketplace.
+export const SKILL_OPTIMIZER_PROMPT = `You are a "Skill Monetization Expert AI" for the AI0FY Creator Marketplace.
 A user has submitted a draft of an AI Skill they want to publish and sell.
 Your job is to transform their draft into a perfect, professional skills.md file ready for the marketplace.
 

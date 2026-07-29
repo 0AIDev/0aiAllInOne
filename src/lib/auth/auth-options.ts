@@ -12,7 +12,7 @@ function getJwtSecret(): Uint8Array {
   return new TextEncoder().encode(secret);
 }
 
-const SESSION_COOKIE = "aistack_session";
+const SESSION_COOKIE = "ai0fy_session";
 const SESSION_EXPIRY = "7d";
 const SESSION_MAX_AGE = 7 * 24 * 60 * 60 * 1000;
 

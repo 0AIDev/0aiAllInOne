@@ -8,7 +8,7 @@ type CellValue = string;
 
 interface ComparisonRow {
   feature: string;
-  aistack: CellValue;
+  ai0fy: CellValue;
   openrouter: CellValue;
   litellm: CellValue;
   cliproxy: CellValue;
@@ -23,67 +23,67 @@ const groups: RowGroup[] = [
   {
     name: "Routing",
     rows: [
-      { feature: "Providers", aistack: "290+", openrouter: "290+", litellm: "100+", cliproxy: "\u2014" },
-      { feature: "Strategies", aistack: "18+", openrouter: "Custom", litellm: "5+", cliproxy: "1" },
-      { feature: "Auto-fallback", aistack: "\u2713", openrouter: "\u2713", litellm: "\u2713", cliproxy: "\u2014" },
-      { feature: "Load balancing", aistack: "\u2713", openrouter: "\u2014", litellm: "\u2713", cliproxy: "~" },
-      { feature: "Quota-aware routing", aistack: "\u2713", openrouter: "\u2014", litellm: "\u2014", cliproxy: "\u2014" },
-      { feature: "Weighted strategies", aistack: "\u2713", openrouter: "\u2014", litellm: "\u2014", cliproxy: "\u2014" },
+      { feature: "Providers", ai0fy: "290+", openrouter: "290+", litellm: "100+", cliproxy: "\u2014" },
+      { feature: "Strategies", ai0fy: "18+", openrouter: "Custom", litellm: "5+", cliproxy: "1" },
+      { feature: "Auto-fallback", ai0fy: "\u2713", openrouter: "\u2713", litellm: "\u2713", cliproxy: "\u2014" },
+      { feature: "Load balancing", ai0fy: "\u2713", openrouter: "\u2014", litellm: "\u2713", cliproxy: "~" },
+      { feature: "Quota-aware routing", ai0fy: "\u2713", openrouter: "\u2014", litellm: "\u2014", cliproxy: "\u2014" },
+      { feature: "Weighted strategies", ai0fy: "\u2713", openrouter: "\u2014", litellm: "\u2014", cliproxy: "\u2014" },
     ],
   },
   {
     name: "Compression",
     rows: [
-      { feature: "Prompt compression engine", aistack: "\u2713", openrouter: "\u2014", litellm: "\u2014", cliproxy: "\u2014" },
-      { feature: "Token savings", aistack: "15\u201395%", openrouter: "\u2014", litellm: "\u2014", cliproxy: "\u2014" },
+      { feature: "Prompt compression engine", ai0fy: "\u2713", openrouter: "\u2014", litellm: "\u2014", cliproxy: "\u2014" },
+      { feature: "Token savings", ai0fy: "15\u201395%", openrouter: "\u2014", litellm: "\u2014", cliproxy: "\u2014" },
     ],
   },
   {
     name: "Protocols & Agents",
     rows: [
-      { feature: "MCP server", aistack: "\u2713", openrouter: "\u2014", litellm: "\u2014", cliproxy: "\u2014" },
-      { feature: "A2A server", aistack: "\u2713", openrouter: "\u2014", litellm: "\u2014", cliproxy: "\u2014" },
-      { feature: "Cloud agent support", aistack: "~", openrouter: "\u2014", litellm: "\u2014", cliproxy: "\u2713" },
-      { feature: "Format translator", aistack: "\u2713", openrouter: "~", litellm: "\u2713", cliproxy: "~" },
+      { feature: "MCP server", ai0fy: "\u2713", openrouter: "\u2014", litellm: "\u2014", cliproxy: "\u2014" },
+      { feature: "A2A server", ai0fy: "\u2713", openrouter: "\u2014", litellm: "\u2014", cliproxy: "\u2014" },
+      { feature: "Cloud agent support", ai0fy: "~", openrouter: "\u2014", litellm: "\u2014", cliproxy: "\u2713" },
+      { feature: "Format translator", ai0fy: "\u2713", openrouter: "~", litellm: "\u2713", cliproxy: "~" },
     ],
   },
   {
     name: "Resilience",
     rows: [
-      { feature: "Circuit breakers", aistack: "\u2713", openrouter: "\u2014", litellm: "\u2014", cliproxy: "\u2014" },
-      { feature: "Connection cooldown", aistack: "\u2713", openrouter: "\u2014", litellm: "~", cliproxy: "\u2014" },
-      { feature: "Model lockout", aistack: "\u2713", openrouter: "\u2014", litellm: "\u2014", cliproxy: "\u2014" },
-      { feature: "Session affinity", aistack: "\u2713", openrouter: "\u2014", litellm: "\u2014", cliproxy: "\u2014" },
+      { feature: "Circuit breakers", ai0fy: "\u2713", openrouter: "\u2014", litellm: "\u2014", cliproxy: "\u2014" },
+      { feature: "Connection cooldown", ai0fy: "\u2713", openrouter: "\u2014", litellm: "~", cliproxy: "\u2014" },
+      { feature: "Model lockout", ai0fy: "\u2713", openrouter: "\u2014", litellm: "\u2014", cliproxy: "\u2014" },
+      { feature: "Session affinity", ai0fy: "\u2713", openrouter: "\u2014", litellm: "\u2014", cliproxy: "\u2014" },
     ],
   },
   {
     name: "Security & Observability",
     rows: [
-      { feature: "PII redaction", aistack: "\u2713", openrouter: "\u2014", litellm: "\u2014", cliproxy: "\u2014" },
-      { feature: "Prompt injection guardrails", aistack: "\u2713", openrouter: "\u2014", litellm: "\u2014", cliproxy: "\u2014" },
-      { feature: "Vision content filter", aistack: "\u2713", openrouter: "\u2014", litellm: "\u2014", cliproxy: "\u2014" },
-      { feature: "Audit logging", aistack: "\u2713", openrouter: "~", litellm: "~", cliproxy: "~" },
-      { feature: "OpenTelemetry tracing", aistack: "\u2713", openrouter: "\u2014", litellm: "~", cliproxy: "\u2014" },
-      { feature: "Webhook notifications", aistack: "\u2713", openrouter: "\u2014", litellm: "\u2014", cliproxy: "\u2014" },
+      { feature: "PII redaction", ai0fy: "\u2713", openrouter: "\u2014", litellm: "\u2014", cliproxy: "\u2014" },
+      { feature: "Prompt injection guardrails", ai0fy: "\u2713", openrouter: "\u2014", litellm: "\u2014", cliproxy: "\u2014" },
+      { feature: "Vision content filter", ai0fy: "\u2713", openrouter: "\u2014", litellm: "\u2014", cliproxy: "\u2014" },
+      { feature: "Audit logging", ai0fy: "\u2713", openrouter: "~", litellm: "~", cliproxy: "~" },
+      { feature: "OpenTelemetry tracing", ai0fy: "\u2713", openrouter: "\u2014", litellm: "~", cliproxy: "\u2014" },
+      { feature: "Webhook notifications", ai0fy: "\u2713", openrouter: "\u2014", litellm: "\u2014", cliproxy: "\u2014" },
     ],
   },
   {
     name: "Platform",
     rows: [
-      { feature: "Multi-tenant", aistack: "\u2713", openrouter: "\u2014", litellm: "~", cliproxy: "\u2014" },
-      { feature: "Stripe billing", aistack: "\u2713", openrouter: "\u2014", litellm: "\u2014", cliproxy: "\u2014" },
-      { feature: "Dashboard", aistack: "\u2713", openrouter: "\u2713", litellm: "\u2713", cliproxy: "\u2713" },
-      { feature: "Virtual keys with budget", aistack: "\u2713", openrouter: "\u2014", litellm: "\u2713", cliproxy: "\u2014" },
-      { feature: "OAuth provider support", aistack: "\u2713", openrouter: "\u2014", litellm: "\u2014", cliproxy: "\u2713" },
-      { feature: "i18n", aistack: "\u2713", openrouter: "\u2014", litellm: "\u2014", cliproxy: "\u2014" },
-      { feature: "Self-hosted", aistack: "\u2713", openrouter: "\u2014", litellm: "\u2713", cliproxy: "\u2713" },
-      { feature: "License", aistack: "BSL", openrouter: "Prop.", litellm: "MIT", cliproxy: "MIT" },
-      { feature: "Stack", aistack: "TS/Next", openrouter: "\u2014", litellm: "Python", cliproxy: "Go" },
+      { feature: "Multi-tenant", ai0fy: "\u2713", openrouter: "\u2014", litellm: "~", cliproxy: "\u2014" },
+      { feature: "Stripe billing", ai0fy: "\u2713", openrouter: "\u2014", litellm: "\u2014", cliproxy: "\u2014" },
+      { feature: "Dashboard", ai0fy: "\u2713", openrouter: "\u2713", litellm: "\u2713", cliproxy: "\u2713" },
+      { feature: "Virtual keys with budget", ai0fy: "\u2713", openrouter: "\u2014", litellm: "\u2713", cliproxy: "\u2014" },
+      { feature: "OAuth provider support", ai0fy: "\u2713", openrouter: "\u2014", litellm: "\u2014", cliproxy: "\u2713" },
+      { feature: "i18n", ai0fy: "\u2713", openrouter: "\u2014", litellm: "\u2014", cliproxy: "\u2014" },
+      { feature: "Self-hosted", ai0fy: "\u2713", openrouter: "\u2014", litellm: "\u2713", cliproxy: "\u2713" },
+      { feature: "License", ai0fy: "BSL", openrouter: "Prop.", litellm: "MIT", cliproxy: "MIT" },
+      { feature: "Stack", ai0fy: "TS/Next", openrouter: "\u2014", litellm: "Python", cliproxy: "Go" },
     ],
   },
 ];
 
-const columns = ["Feature", "AIStack", "OpenRouter", "LiteLLM", "CLIProxy"] as const;
+const columns = ["Feature", "AI0FY", "OpenRouter", "LiteLLM", "CLIProxy"] as const;
 
 function cellColor(colIdx: number, _value: string) {
   if (colIdx === 0) return "text-[#0F0F0E] font-medium";
@@ -209,10 +209,10 @@ export function ComparisonTable() {
                         <td
                           className={cn(
                             "px-5 py-3 text-sm",
-                            cellColor(1, row.aistack)
+                            cellColor(1, row.ai0fy)
                           )}
                         >
-                          {row.aistack}
+                          {row.ai0fy}
                         </td>
                         <td
                           className={cn(

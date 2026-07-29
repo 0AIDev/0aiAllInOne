@@ -3,7 +3,7 @@ import Image from "next/image";
 import { Navbar } from "@/components/layout/navbar";
 
 export const metadata: Metadata = {
-  title: "Providers - AIStack",
+  title: "Providers - AI0FY",
   description: "290+ AI providers through one unified API endpoint. Browse, search, and connect.",
 };
 

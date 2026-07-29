@@ -4,8 +4,8 @@ import { Footer } from "@/components/layout/footer";
 
 
 export const metadata: Metadata = {
-  title: "System Status - AIStack",
-  description: "Current status of AIStack services and components.",
+  title: "System Status - AI0FY",
+  description: "Current status of AI0FY services and components.",
 };
 
 const components = [
@@ -75,7 +75,7 @@ export default function StatusPage() {
                 <span className="text-lg font-medium text-[#0F0F0E]">All Systems Operational</span>
               </div>
               <p className="mt-1.5 text-sm text-[#7A7870]">
-                All AIStack services are running normally.
+                All AI0FY services are running normally.
               </p>
             </div>
 

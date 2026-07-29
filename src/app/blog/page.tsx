@@ -5,30 +5,30 @@ import { Footer } from "@/components/layout/footer";
 import { ArrowRight, Calendar } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "Blog - AIStack",
-  description: "Latest news, tutorials, and updates from the AIStack team.",
+  title: "Blog - AI0FY",
+  description: "Latest news, tutorials, and updates from the AI0FY team.",
 };
 
 const posts = [
   {
-    title: "Introducing AIStack: The Universal AI Gateway",
+    title: "Introducing AI0FY: The Universal AI Gateway",
     date: "June 15, 2026",
     excerpt:
-      "We're excited to announce AIStack — a unified API endpoint that gives you access to 290+ AI providers with automatic fallback, prompt compression, and built-in guardrails.",
-    slug: "introducing-aistack",
+      "We're excited to announce AI0FY — a unified API endpoint that gives you access to 290+ AI providers with automatic fallback, prompt compression, and built-in guardrails.",
+    slug: "introducing-ai0fy",
   },
   {
     title: "Multi-Provider Fallback: Never Downtime Your AI",
     date: "June 8, 2026",
     excerpt:
-      "Learn how AIStack's intelligent multi-provider fallback ensures your application stays online even when individual providers experience outages or rate limits.",
+      "Learn how AI0FY's intelligent multi-provider fallback ensures your application stays online even when individual providers experience outages or rate limits.",
     slug: "multi-provider-fallback",
   },
   {
     title: "Prompt Compression Without Quality Loss",
     date: "May 28, 2026",
     excerpt:
-      "Reduce your token usage by up to 60% with AIStack's state-of-the-art prompt compression. Compatible with all major LLM providers.",
+      "Reduce your token usage by up to 60% with AI0FY's state-of-the-art prompt compression. Compatible with all major LLM providers.",
     slug: "prompt-compression",
   },
 ];
@@ -52,7 +52,7 @@ export default function BlogPage() {
               </em>
             </h1>
             <p className="mt-4 text-lg text-[#3A3A37]">
-              Thoughts, tutorials, and updates from the AIStack team.
+              Thoughts, tutorials, and updates from the AI0FY team.
             </p>
 
             <div className="mt-12 space-y-6">

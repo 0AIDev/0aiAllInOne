@@ -3,8 +3,8 @@ import { Navbar } from "@/components/layout/navbar";
 import { Footer } from "@/components/layout/footer";
 
 export const metadata: Metadata = {
-  title: "Changelog - AIStack",
-  description: "Latest updates and improvements to AIStack.",
+  title: "Changelog - AI0FY",
+  description: "Latest updates and improvements to AI0FY.",
 };
 
 const entries = [
@@ -34,7 +34,7 @@ const entries = [
     version: "v1.0.0",
     date: "May 25, 2026",
     changes: [
-      "Stable release of AIStack universal AI gateway",
+      "Stable release of AI0FY universal AI gateway",
       "Support for 290+ AI providers with auto-discovery",
       "Automatic multi-provider fallback on errors and rate limits",
       "Prompt compression reducing tokens by up to 60%",
@@ -83,7 +83,7 @@ export default function ChangelogPage() {
               </em>
             </h1>
             <p className="mt-4 text-lg text-[#3A3A37]">
-              Track every update, improvement, and fix shipped to AIStack.
+              Track every update, improvement, and fix shipped to AI0FY.
             </p>
 
             <div className="mt-12 space-y-8">

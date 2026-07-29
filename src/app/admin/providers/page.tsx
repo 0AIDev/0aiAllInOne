@@ -38,7 +38,7 @@ export default async function AdminProvidersPage() {
     {
       name: "OAuth Providers",
       count: 19,
-      description: "Sign in once and AIStack handles token rotation automatically.",
+      description: "Sign in once and AI0FY handles token rotation automatically.",
       providers: makeProviders([
         { slug: "amazon-q", name: "Amazon Q", domain: "aws.amazon.com" },
         { slug: "antigravity", name: "Antigravity", domain: "antigravity.google" },

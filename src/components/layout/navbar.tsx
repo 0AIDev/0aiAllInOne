@@ -77,7 +77,7 @@ export function Navbar({ user, className }: NavbarProps) {
             A
           </div>
           <span className="text-sm font-bold tracking-tight text-[#0F0F0E]" style={{ fontFamily: "'Inter Tight', sans-serif" }}>
-            AIStack
+            AI0FY
           </span>
         </Link>
 

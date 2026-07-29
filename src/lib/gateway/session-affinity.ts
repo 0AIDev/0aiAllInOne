@@ -1,5 +1,5 @@
 // ============================================================
-// AIStack — Session Affinity (OmniRoute session_account_affinity)
+// AI0FY — Session Affinity (OmniRoute session_account_affinity)
 // Sticky sessions: same session → same provider
 // ============================================================
 

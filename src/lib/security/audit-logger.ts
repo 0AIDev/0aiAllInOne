@@ -1,5 +1,5 @@
 // ============================================================
-// AIStack — Audit Logger (OmniRoute audit_logs)
+// AI0FY — Audit Logger (OmniRoute audit_logs)
 // Traces key actions: login, key create/revoke, gateway requests
 // ============================================================
 

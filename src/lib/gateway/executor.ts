@@ -1,5 +1,5 @@
 // ============================================================
-// AIStack — Provider Executor (Template Method Pattern)
+// AI0FY — Provider Executor (Template Method Pattern)
 // Pattern: OmniRoute open-sse/executors/base.ts
 // ============================================================
 

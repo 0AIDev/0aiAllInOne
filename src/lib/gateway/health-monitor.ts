@@ -1,5 +1,5 @@
 // ============================================================
-// AIStack — WebSocket Live Monitor
+// AI0FY — WebSocket Live Monitor
 // Real-time provider health streaming for admin dashboard
 // ============================================================
 

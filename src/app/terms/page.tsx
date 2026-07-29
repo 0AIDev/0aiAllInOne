@@ -2,8 +2,8 @@ import Link from "next/link";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Terms of Service - AIStack",
-  description: "AIStack Terms of Service",
+  title: "Terms of Service - AI0FY",
+  description: "AI0FY Terms of Service",
 };
 
 export default function TermsPage() {
@@ -36,7 +36,7 @@ export default function TermsPage() {
           <section>
             <h2 className="mb-3 text-lg font-medium text-[#0F0F0E]">1. Acceptance of Terms</h2>
             <p>
-              By accessing or using AIStack (&quot;the Service&quot;), you agree to be bound by these
+              By accessing or using AI0FY (&quot;the Service&quot;), you agree to be bound by these
               Terms of Service. If you do not agree to these terms, you may not use the Service.
             </p>
           </section>
@@ -44,7 +44,7 @@ export default function TermsPage() {
           <section>
             <h2 className="mb-3 text-lg font-medium text-[#0F0F0E]">2. Description of Service</h2>
             <p>
-              AIStack provides a unified API gateway for AI model inference, including automatic
+              AI0FY provides a unified API gateway for AI model inference, including automatic
               provider fallback, quota management, prompt compression, and subscription billing.
               The Service acts as a proxy between your application and third-party AI providers.
             </p>
@@ -109,7 +109,7 @@ export default function TermsPage() {
           <section>
             <h2 className="mb-3 text-lg font-medium text-[#0F0F0E]">9. Limitation of Liability</h2>
             <p>
-              To the maximum extent permitted by law, AIStack shall not be liable for any indirect,
+              To the maximum extent permitted by law, AI0FY shall not be liable for any indirect,
               incidental, special, or consequential damages arising from your use of the Service.
               Our total liability is limited to the amount you paid us in the 12 months preceding
               the claim.
@@ -137,8 +137,8 @@ export default function TermsPage() {
             <h2 className="mb-3 text-lg font-medium text-[#0F0F0E]">12. Contact</h2>
             <p>
               For questions about these terms, contact us at{" "}
-              <a href="mailto:legal@aistack.dev" className="underline underline-offset-4 transition-colors hover:text-[#0F0F0E]">
-                legal@aistack.dev
+              <a href="mailto:legal@ai0fy.dev" className="underline underline-offset-4 transition-colors hover:text-[#0F0F0E]">
+legal@ai0fy.dev
               </a>.
             </p>
           </section>

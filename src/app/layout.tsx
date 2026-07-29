@@ -3,7 +3,7 @@ import { ClientLayout } from "@/components/providers/client-layout";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "AIStack - AI Gateway for Multi-Provider LLMs",
+  title: "AI0FY - AI Gateway for Multi-Provider LLMs",
   description:
     "Unified API endpoint with 290+ providers, auto-fallback, subscription management, and multi-tenant architecture",
 };

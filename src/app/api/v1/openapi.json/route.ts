@@ -4,12 +4,12 @@ export async function GET(): Promise<NextResponse> {
   const spec = {
     openapi: "3.1.0",
     info: {
-      title: "AIStack API",
+      title: "AI0FY API",
       description: "AI Gateway SaaS - unified API endpoint with multi-provider auto-fallback, subscription management, and multi-tenant architecture",
       version: "0.1.0",
       contact: {
-        name: "AIStack",
-        url: process.env.NEXT_PUBLIC_APP_URL ?? "https://aistack.ai",
+        name: "AI0FY",
+        url: process.env.NEXT_PUBLIC_APP_URL ?? "https://ai0fy.ai",
       },
     },
     servers: [

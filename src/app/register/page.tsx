@@ -79,7 +79,7 @@ function RegisterForm() {
                 <span className="block -translate-y-px">A</span>
               </span>
               <span className="text-lg font-bold tracking-tight text-[#0F0F0E]">
-                AIStack
+                AI0FY
               </span>
             </Link>
             <h1

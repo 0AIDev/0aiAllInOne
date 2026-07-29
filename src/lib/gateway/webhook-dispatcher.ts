@@ -21,7 +21,7 @@ export class WebhookDispatcher {
         if (wh.events.includes(event)) {
           fetch(wh.url, {
             method: "POST",
-            headers: { "Content-Type": "application/json", "X-AIStack-Event": event },
+            headers: { "Content-Type": "application/json", "X-AI0FY-Event": event },
             body: JSON.stringify(payload),
             signal: AbortSignal.timeout(5000),
           }).catch(() => {});

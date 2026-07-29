@@ -1,5 +1,5 @@
 // ============================================================
-// AIStack — MEGA SEED: 150+ Provider AI con URL reali
+// AI0FY — MEGA SEED: 150+ Provider AI con URL reali
 // KEYLESS (no auth) → FREE TIER (con key) → PAID
 // Il tenant li riceve tutti in automatico dopo la registrazione
 // ============================================================
@@ -422,7 +422,7 @@ const PLANS = [
 // ═══════════════════════════════════════════════════════════
 
 async function main() {
-  console.log("🌱 AIStack Mega Seed — 150+ provider in corso...\n");
+  console.log("🌱 AI0FY Mega Seed — 150+ provider in corso...\n");
   const ALL = [...KEYLESS, ...FREE_TIER, ...PAID_ONLY];
   const created: Array<{ id: string; slug: string; priority: number; category: string }> = [];
 
@@ -431,7 +431,7 @@ async function main() {
     await prisma.plan.upsert({
       where: { tier: p.tier },
       update: { tokensPerMonth: p.tokens },
-      create: { tier: p.tier, name: p.name, description: `AIStack ${p.name}`, monthlyPrice: p.price, tokensPerMonth: p.tokens, requestsPerMin: p.rpm, maxApiKeys: p.keys, modelsIncluded: p.models, features: p.features, sortOrder: p.sort },
+      create: { tier: p.tier, name: p.name, description: `AI0FY ${p.name}`, monthlyPrice: p.price, tokensPerMonth: p.tokens, requestsPerMin: p.rpm, maxApiKeys: p.keys, modelsIncluded: p.models, features: p.features, sortOrder: p.sort },
     });
   }
 
@@ -473,11 +473,11 @@ async function main() {
   }
 
   // Admin tenant + pool
-  let adminTenant = await prisma.tenant.findFirst({ where: { slug: "aistack-admin" } });
+  let adminTenant = await prisma.tenant.findFirst({ where: { slug: "ai0fy-admin" } });
   if (!adminTenant) {
-    adminTenant = await prisma.tenant.create({ data: { name: "AIStack Admin", slug: "aistack-admin", planTier: "ENTERPRISE", hardQuotaTokens: 500_000_000, softQuotaTokens: 425_000_000 } });
+    adminTenant = await prisma.tenant.create({ data: { name: "AI0FY Admin", slug: "ai0fy-admin", planTier: "ENTERPRISE", hardQuotaTokens: 500_000_000, softQuotaTokens: 425_000_000 } });
     const pw = await hash("admin123", 12);
-    await prisma.user.create({ data: { tenantId: adminTenant.id, email: "admin@aistack.local", passwordHash: pw, name: "Admin", role: "OWNER", isActive: true } });
+    await prisma.user.create({ data: { tenantId: adminTenant.id, email: "admin@ai0fy.local", passwordHash: pw, name: "Admin", role: "OWNER", isActive: true } });
   }
 
   await prisma.providerPoolEntry.deleteMany({ where: { tenantId: adminTenant.id } });
@@ -493,7 +493,7 @@ async function main() {
   console.log(`\n✅ SEED COMPLETATO`);
   console.log(`   ${keylessCount} KEYLESS (nessuna chiave) | ${freeCount} FREE TIER (con account) | ${paidCount} PAID`);
   console.log(`   ${allModels.length} modelli | ${entriesCount} entries nel pool admin`);
-  console.log(`   Login: admin@aistack.local / admin123`);
+  console.log(`   Login: admin@ai0fy.local / admin123`);
   console.log(`   Ogni nuovo tenant eredita tutto automaticamente.\n`);
 }
 

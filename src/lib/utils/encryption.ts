@@ -7,7 +7,7 @@ const AUTH_TAG_LENGTH = 16;
 function getEncryptionKey(): Buffer {
   const secret = process.env.PROVIDER_KEY_ENCRYPTION_SECRET;
   if (!secret) throw new Error("PROVIDER_KEY_ENCRYPTION_SECRET not set");
-  return scryptSync(secret, "aistack-salt", 32);
+  return scryptSync(secret, "ai0fy-salt", 32);
 }
 
 export function encrypt(text: string): string {

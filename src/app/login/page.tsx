@@ -53,7 +53,7 @@ export default function LoginPage() {
               <span
                 className="text-lg font-bold tracking-tight text-[#0F0F0E]"
               >
-                AIStack
+                AI0FY
               </span>
             </Link>
             <h1

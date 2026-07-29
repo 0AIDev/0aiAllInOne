@@ -4,8 +4,8 @@ import { Footer } from "@/components/layout/footer";
 import { ContactContent } from "./contact-content";
 
 export const metadata: Metadata = {
-  title: "Contact - AIStack",
-  description: "Get in touch with the AIStack team.",
+  title: "Contact - AI0FY",
+  description: "Get in touch with the AI0FY team.",
 };
 
 export default function ContactPage() {

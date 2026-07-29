@@ -5,29 +5,29 @@ import { Footer } from "@/components/layout/footer";
 import { ArrowRight, Play, Zap, Shrink, Layers } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "Guides - AIStack",
-  description: "Step-by-step guides for integrating AIStack into your application.",
+  title: "Guides - AI0FY",
+  description: "Step-by-step guides for integrating AI0FY into your application.",
 };
 
 const guides = [
   {
     title: "Getting Started",
     description:
-      "Create your account, get your API key, and make your first request to AIStack in under 60 seconds.",
+      "Create your account, get your API key, and make your first request to AI0FY in under 60 seconds.",
     icon: Play,
     href: "/docs/guides/getting-started",
   },
   {
     title: "Streaming Responses",
     description:
-      "Learn how to stream AI responses in real-time using server-sent events (SSE) with AIStack.",
+      "Learn how to stream AI responses in real-time using server-sent events (SSE) with AI0FY.",
     icon: Zap,
     href: "/docs/guides/streaming",
   },
   {
     title: "Prompt Compression",
     description:
-      "Reduce token usage by up to 60% with AIStack's built-in prompt compression. No code changes needed.",
+      "Reduce token usage by up to 60% with AI0FY's built-in prompt compression. No code changes needed.",
     icon: Shrink,
     href: "/docs/guides/compression",
   },
@@ -59,7 +59,7 @@ export default function GuidesPage() {
               </em>
             </h1>
             <p className="mt-4 text-lg text-[#3A3A37]">
-              Step-by-step tutorials to help you integrate AIStack into your application.
+              Step-by-step tutorials to help you integrate AI0FY into your application.
             </p>
 
             <div className="mt-12 grid gap-6 sm:grid-cols-2">

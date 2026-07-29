@@ -3,8 +3,8 @@ import { Navbar } from "@/components/layout/navbar";
 import { Footer } from "@/components/layout/footer";
 
 export const metadata: Metadata = {
-  title: "SDKs & Libraries - AIStack",
-  description: "Official AIStack SDKs for popular programming languages.",
+  title: "SDKs & Libraries - AI0FY",
+  description: "Official AI0FY SDKs for popular programming languages.",
 };
 
 const sdks = [
@@ -12,35 +12,35 @@ const sdks = [
     name: "TypeScript / JavaScript",
     lang: "ts",
     description:
-      "The official TypeScript SDK for AIStack. Fully typed, supports all endpoints, streaming, and provider fallback. Drop-in compatible with the OpenAI SDK.",
+      "The official TypeScript SDK for AI0FY. Fully typed, supports all endpoints, streaming, and provider fallback. Drop-in compatible with the OpenAI SDK.",
     color: "bg-blue-50 text-blue-700",
   },
   {
     name: "Python",
     lang: "py",
     description:
-      "The official Python SDK for AIStack. Async and sync clients, complete type annotations, and seamless integration with popular frameworks like FastAPI and Django.",
+      "The official Python SDK for AI0FY. Async and sync clients, complete type annotations, and seamless integration with popular frameworks like FastAPI and Django.",
     color: "bg-sky-50 text-sky-700",
   },
   {
     name: "Go",
     lang: "go",
     description:
-      "The official Go SDK for AIStack. High-performance, concurrent-safe client with built-in retry logic and connection pooling.",
+      "The official Go SDK for AI0FY. High-performance, concurrent-safe client with built-in retry logic and connection pooling.",
     color: "bg-cyan-50 text-cyan-700",
   },
   {
     name: "Rust",
     lang: "rs",
     description:
-      "The official Rust SDK for AIStack. Zero-cost abstractions, async support via tokio, and minimal memory footprint.",
+      "The official Rust SDK for AI0FY. Zero-cost abstractions, async support via tokio, and minimal memory footprint.",
     color: "bg-orange-50 text-orange-700",
   },
   {
     name: "Java / Kotlin",
     lang: "java",
     description:
-      "The official Java SDK for AIStack. Compatible with Java 17+, Kotlin coroutines support, and Spring Boot integration.",
+      "The official Java SDK for AI0FY. Compatible with Java 17+, Kotlin coroutines support, and Spring Boot integration.",
     color: "bg-red-50 text-red-700",
   },
 ];
@@ -65,7 +65,7 @@ export default function SDKsPage() {
               &amp; Libraries
             </h1>
             <p className="mt-4 text-lg text-[#3A3A37]">
-              Official client libraries for integrating AIStack into your application.
+              Official client libraries for integrating AI0FY into your application.
             </p>
 
             <div className="mt-12 grid gap-6 sm:grid-cols-2">

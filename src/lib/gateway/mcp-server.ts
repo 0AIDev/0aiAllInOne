@@ -1,5 +1,5 @@
 // ============================================================
-// AIStack — MCP/A2A Protocol (OmniRoute MCP server)
+// AI0FY — MCP/A2A Protocol (OmniRoute MCP server)
 // Model Context Protocol — tool server for agent communication
 // ============================================================
 

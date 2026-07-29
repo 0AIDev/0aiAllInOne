@@ -1,5 +1,5 @@
 // ============================================================
-// AIStack — Enhanced Guardrails
+// AI0FY — Enhanced Guardrails
 // PII masking, credential redaction, prompt injection detection
 // Pattern: OmniRoute guardrailRegistry + promptInjection guard
 // ============================================================

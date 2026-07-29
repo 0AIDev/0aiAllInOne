@@ -6,20 +6,20 @@ import { Terminal, MessageSquare, FileText, List, BarChart3, Eye, ArrowRight, Gi
 import { CopyButton } from "./CopyButton";
 
 export const metadata: Metadata = {
-  title: "CLI - AIStack",
+  title: "CLI - AI0FY",
   description: "290+ providers from your terminal. One command to rule them all.",
 };
 
 const commands = [
-  { icon: Terminal, name: "aistack init", desc: "Step-by-step wizard. Set your API key, pick a default model, and configure compression.", flags: "" },
-  { icon: MessageSquare, name: "aistack chat", desc: "Interactive chat with streaming. See which provider served each response and the latency.", flags: '--model auto/coding --system "You are a senior engineer"' },
-  { icon: Zap, name: "aistack run", desc: "One-shot prompt. Pipe stdin for file input. Returns clean output — ideal for scripts.", flags: '"Summarize this log" --model gpt-4o' },
-  { icon: FileText, name: "aistack stream", desc: "Token-by-token streaming. Watch tokens arrive in real time with live cost estimates.", flags: '"Write a haiku about code" --model claude-4' },
-  { icon: List, name: "aistack models", desc: "Browse the full catalog. Filter by provider, search by name, or show only free models.", flags: "--search gpt --free-only --json" },
-  { icon: BarChart3, name: "aistack benchmark", desc: "Compare models head-to-head. Measure latency, token count, and cost across multiple runs.", flags: '"Fix this bug" --models gpt-4o,claude-4 --runs 5' },
-  { icon: Eye, name: "aistack watch", desc: "Real-time dashboard in your terminal. See requests, fallbacks, and health at a glance.", flags: "" },
-  { icon: Monitor, name: "aistack providers", desc: "List every connected provider by category. Check status, quota, and connection health.", flags: "--category free --search openai" },
-  { icon: FileText, name: "aistack compress", desc: "Preview how much you save before sending. RTK + Caveman compression in one command.", flags: "paste text here --level aggressive" },
+  { icon: Terminal, name: "ai0fy init", desc: "Step-by-step wizard. Set your API key, pick a default model, and configure compression.", flags: "" },
+  { icon: MessageSquare, name: "ai0fy chat", desc: "Interactive chat with streaming. See which provider served each response and the latency.", flags: '--model auto/coding --system "You are a senior engineer"' },
+  { icon: Zap, name: "ai0fy run", desc: "One-shot prompt. Pipe stdin for file input. Returns clean output — ideal for scripts.", flags: '"Summarize this log" --model gpt-4o' },
+  { icon: FileText, name: "ai0fy stream", desc: "Token-by-token streaming. Watch tokens arrive in real time with live cost estimates.", flags: '"Write a haiku about code" --model claude-4' },
+  { icon: List, name: "ai0fy models", desc: "Browse the full catalog. Filter by provider, search by name, or show only free models.", flags: "--search gpt --free-only --json" },
+  { icon: BarChart3, name: "ai0fy benchmark", desc: "Compare models head-to-head. Measure latency, token count, and cost across multiple runs.", flags: '"Fix this bug" --models gpt-4o,claude-4 --runs 5' },
+  { icon: Eye, name: "ai0fy watch", desc: "Real-time dashboard in your terminal. See requests, fallbacks, and health at a glance.", flags: "" },
+  { icon: Monitor, name: "ai0fy providers", desc: "List every connected provider by category. Check status, quota, and connection health.", flags: "--category free --search openai" },
+  { icon: FileText, name: "ai0fy compress", desc: "Preview how much you save before sending. RTK + Caveman compression in one command.", flags: "paste text here --level aggressive" },
 ];
 
 export default function CLIPage() {
@@ -33,7 +33,7 @@ export default function CLIPage() {
             <div className="mx-auto max-w-4xl text-center">
               <p className="text-xs font-medium uppercase tracking-[0.15em] text-[#7A7870]">CLI</p>
               <h1 className="mt-4 text-[clamp(36px,6vw,64px)] font-medium leading-[1.1] tracking-[-0.02em] text-[#0F0F0E]" style={{ fontFamily: "'Inter Tight', sans-serif" }}>
-                AIStack{" "}
+                AI0FY{" "}
                 <em className="italic" style={{ fontFamily: "'Instrument Serif', serif", fontWeight: 400 }}>CLI</em>
               </h1>
               <p className="mx-auto mt-5 max-w-xl text-[18px] leading-relaxed text-[#3A3A37]">
@@ -45,15 +45,15 @@ export default function CLIPage() {
                 <div className="flex items-center gap-0 rounded-xl border border-[rgba(15,15,14,0.08)] bg-white p-1.5 shadow-[0_8px_30px_-12px_rgba(15,15,14,0.1)]">
                   <span className="select-none px-4 py-2.5 text-sm font-medium text-[#7A7870]">$</span>
                   <code className="flex-1 truncate py-2.5 text-sm font-medium text-[#0F0F0E]" style={{ fontFamily: "'Inter Tight', sans-serif" }}>
-                    curl -fsSL https://cli.aistack.dev/install.sh | bash
+                    curl -fsSL https://cli.ai0fy.dev/install.sh | bash
                   </code>
-                  <CopyButton text="curl -fsSL https://cli.aistack.dev/install.sh | bash" />
+                  <CopyButton text="curl -fsSL https://cli.ai0fy.dev/install.sh | bash" />
                 </div>
                 <div className="flex items-center justify-center gap-4 text-xs text-[#7A7870]">
                   <span>or</span>
-                  <code className="rounded-md bg-[rgba(15,15,14,0.05)] px-2.5 py-1 font-medium text-[#0F0F0E]" style={{ fontFamily: "'Inter Tight', sans-serif" }}>npm i -g aistack-cli</code>
+                  <code className="rounded-md bg-[rgba(15,15,14,0.05)] px-2.5 py-1 font-medium text-[#0F0F0E]" style={{ fontFamily: "'Inter Tight', sans-serif" }}>npm i -g ai0fy-cli</code>
                   <span>or</span>
-                  <code className="rounded-md bg-[rgba(15,15,14,0.05)] px-2.5 py-1 font-medium text-[#0F0F0E]" style={{ fontFamily: "'Inter Tight', sans-serif" }}>brew install aistack</code>
+                  <code className="rounded-md bg-[rgba(15,15,14,0.05)] px-2.5 py-1 font-medium text-[#0F0F0E]" style={{ fontFamily: "'Inter Tight', sans-serif" }}>brew install ai0fy</code>
                 </div>
               </div>
             </div>
@@ -68,7 +68,7 @@ export default function CLIPage() {
                   Interactive Setup Wizard
                 </h2>
                 <p className="mt-2 text-sm text-[#3A3A37]">
-                  Run <code className="rounded bg-[rgba(15,15,14,0.06)] px-1.5 py-0.5 text-xs font-medium text-[#0F0F0E]">aistack setup</code> for a beautiful TUI that walks you through authentication, provider connections, API key generation, and environment export. No browser needed.
+                  Run <code className="rounded bg-[rgba(15,15,14,0.06)] px-1.5 py-0.5 text-xs font-medium text-[#0F0F0E]">ai0fy setup</code> for a beautiful TUI that walks you through authentication, provider connections, API key generation, and environment export. No browser needed.
                 </p>
               </div>
             </div>
@@ -111,29 +111,29 @@ export default function CLIPage() {
                   <span className="h-2.5 w-2.5 rounded-full bg-[#ff5f56]" />
                   <span className="h-2.5 w-2.5 rounded-full bg-[#ffbd2e]" />
                   <span className="h-2.5 w-2.5 rounded-full bg-[#27c93f]" />
-                  <span className="ml-3 text-[11px] text-white/40">Terminal — aistack v1.0</span>
+                  <span className="ml-3 text-[11px] text-white/40">Terminal — ai0fy v1.0</span>
                 </div>
                 <pre className="overflow-x-auto p-5 text-[13px] leading-relaxed" style={{ fontFamily: "'Inter Tight', sans-serif" }}>
                   <code>
                     <span className="text-white/30"># Install the CLI</span>{"\n"}
-                    <span className="text-[#10b981]">$</span> <span className="text-white/80">curl -fsSL https://cli.aistack.dev/install.sh | bash</span>{"\n\n"}
+                    <span className="text-[#10b981]">$</span> <span className="text-white/80">curl -fsSL https://cli.ai0fy.dev/install.sh | bash</span>{"\n\n"}
                     <span className="text-white/30"># Login to your account</span>{"\n"}
-                    <span className="text-[#10b981]">$</span> <span className="text-white/80">aistack init</span>{"\n"}
+                    <span className="text-[#10b981]">$</span> <span className="text-white/80">ai0fy init</span>{"\n"}
                     <span className="text-white/50">  Enter API key: ************</span>{"\n"}
-                    <span className="text-white/50">  ✓ Configuration saved to ~/.aistack/config.json</span>{"\n\n"}
+                    <span className="text-white/50">  ✓ Configuration saved to ~/.ai0fy/config.json</span>{"\n\n"}
                     <span className="text-white/30"># Chat interactively</span>{"\n"}
-                    <span className="text-[#10b981]">$</span> <span className="text-white/80">aistack chat --model auto</span>{"\n"}
+                    <span className="text-[#10b981]">$</span> <span className="text-white/80">ai0fy chat --model auto</span>{"\n"}
                     <span className="text-white/50">  You: Explain quantum computing in 3 sentences</span>{"\n"}
                     <span className="text-[#5AF78E]">  AI: Quantum computing uses qubits instead of bits...</span>{"\n"}
                     <span className="text-white/30">  ✓ openai/gpt-4o — 1.24s — 42 tokens</span>{"\n\n"}
                     <span className="text-white/30"># Run a single prompt (pipe-friendly)</span>{"\n"}
-                    <span className="text-[#10b981]">$</span> <span className="text-white/60">cat logs.txt</span> <span className="text-white/80">| aistack run</span> <span className="text-[#e9b44c]">&quot;Find all errors in these logs&quot;</span>{"\n\n"}
+                    <span className="text-[#10b981]">$</span> <span className="text-white/60">cat logs.txt</span> <span className="text-white/80">| ai0fy run</span> <span className="text-[#e9b44c]">&quot;Find all errors in these logs&quot;</span>{"\n\n"}
                     <span className="text-white/30"># List models and filter</span>{"\n"}
-                    <span className="text-[#10b981]">$</span> <span className="text-white/80">aistack models --search gpt --free-only</span>{"\n\n"}
+                    <span className="text-[#10b981]">$</span> <span className="text-white/80">ai0fy models --search gpt --free-only</span>{"\n\n"}
                     <span className="text-white/30"># Benchmark across models</span>{"\n"}
-                    <span className="text-[#10b981]">$</span> <span className="text-white/80">aistack benchmark &quot;Write a sorting function&quot; --models auto --runs 10</span>{"\n\n"}
+                    <span className="text-[#10b981]">$</span> <span className="text-white/80">ai0fy benchmark &quot;Write a sorting function&quot; --models auto --runs 10</span>{"\n\n"}
                     <span className="text-white/30"># Live usage monitor</span>{"\n"}
-                    <span className="text-[#10b981]">$</span> <span className="text-white/80">aistack watch</span>
+                    <span className="text-[#10b981]">$</span> <span className="text-white/80">ai0fy watch</span>
                   </code>
                 </pre>
               </div>
@@ -146,8 +146,8 @@ export default function CLIPage() {
               <div className="rounded-[20px] border border-[rgba(15,15,14,0.08)] bg-white px-8 py-12 sm:px-12 sm:py-16">
                 <Github className="mx-auto h-10 w-10 text-[#0F0F0E]" />
                 <h2 className="mt-5 text-2xl font-medium tracking-[-0.01em] text-[#0F0F0E]" style={{ fontFamily: "'Inter Tight', sans-serif" }}>Open source</h2>
-                <p className="mt-3 text-[16px] leading-relaxed text-[#3A3A37]">The AIStack CLI is fully open source. Star it, fork it, contribute.</p>
-                <Link href="https://github.com/aistack/cli" target="_blank" rel="noopener noreferrer" className="mt-6 inline-flex items-center gap-2 rounded-[10px] border border-[rgba(15,15,14,0.12)] bg-white px-6 py-3 text-sm font-medium text-[#0F0F0E] transition-colors hover:bg-[rgba(15,15,14,0.03)]">
+                <p className="mt-3 text-[16px] leading-relaxed text-[#3A3A37]">The AI0FY CLI is fully open source. Star it, fork it, contribute.</p>
+                <Link href="https://github.com/ai0fy/cli" target="_blank" rel="noopener noreferrer" className="mt-6 inline-flex items-center gap-2 rounded-[10px] border border-[rgba(15,15,14,0.12)] bg-white px-6 py-3 text-sm font-medium text-[#0F0F0E] transition-colors hover:bg-[rgba(15,15,14,0.03)]">
                   <Github className="h-4 w-4" /> View on GitHub <ArrowRight className="h-4 w-4" />
                 </Link>
               </div>

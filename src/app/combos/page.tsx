@@ -3,8 +3,8 @@ import { Navbar } from "@/components/layout/navbar";
 import { Footer } from "@/components/layout/footer";
 
 export const metadata: Metadata = {
-  title: "Smart Combos - AIStack",
-  description: "19 routing strategies. Set your model to auto and let AIStack build a virtual combo from your connected providers.",
+  title: "Smart Combos - AI0FY",
+  description: "19 routing strategies. Set your model to auto and let AI0FY build a virtual combo from your connected providers.",
 };
 
 const strategies = [
@@ -60,7 +60,7 @@ export default function CombosPage() {
                 </em>
               </h1>
               <p className="mx-auto mt-5 max-w-xl text-[18px] leading-relaxed text-[#3A3A37]">
-                One alias, 290+ providers behind it. AIStack&apos;s combo engine
+                One alias, 290+ providers behind it. AI0FY&apos;s combo engine
                 builds a virtual pipeline from your connected providers, scored
                 live across 12 factors in real time.
               </p>
