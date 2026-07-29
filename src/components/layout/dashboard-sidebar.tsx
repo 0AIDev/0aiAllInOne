@@ -19,7 +19,7 @@ import {
 
 const userLinks = [
   { href: "/dashboard", label: "Overview", icon: LayoutDashboard },
-  { href: "/dashboard/onboarding", label: "Setup", icon: Plug },
+  { href: "/onboarding", label: "Setup", icon: Plug },
   { href: "/dashboard/api-keys", label: "API Keys", icon: Key },
   { href: "/dashboard/usage", label: "Usage", icon: BarChart3 },
   { href: "/dashboard/subscription", label: "Subscription", icon: CreditCard },
