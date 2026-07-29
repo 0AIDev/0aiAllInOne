@@ -6,6 +6,7 @@ export const metadata: Metadata = {
   title: "AI0FY - AI Gateway for Multi-Provider LLMs",
   description:
     "Unified API endpoint with 290+ providers, auto-fallback, subscription management, and multi-tenant architecture",
+  icons: { icon: "/favicon.png" },
 };
 
 export default function RootLayout({
@@ -16,6 +17,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
+        <link rel="icon" type="image/png" href="/favicon.png" />
         <link
           rel="preconnect"
           href="https://fonts.bunny.net"
