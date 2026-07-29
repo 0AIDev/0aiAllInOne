@@ -12,7 +12,7 @@
   <br/>
 
   <p align="center">
-    <strong>AI0FY</strong> — Universal AI Gateway · Multi-Provider Fallback · Smart Routing · Prompt Compression
+    <strong>AI0FY</strong> Universal AI Gateway · Multi-Provider Fallback · Smart Routing · Prompt Compression
   </p>
 
   <br/>
