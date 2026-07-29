@@ -28,12 +28,13 @@
   <br/>
 
   <p align="center">
-    <img src="https://img.shields.io/badge/next.js-15.5-black?style=flat-square" alt="Next.js" />
-    <img src="https://img.shields.io/badge/TypeScript-5.8-blue?style=flat-square" alt="TypeScript" />
-    <img src="https://img.shields.io/badge/PRISMA-SQLite-2D3748?style=flat-square" alt="Prisma" />
-    <img src="https://img.shields.io/badge/i18n-7%20languages-success?style=flat-square" alt="i18n" />
-    <img src="https://img.shields.io/badge/license-MIT-green?style=flat-square" alt="License" />
-    <img src="https://img.shields.io/badge/build-60%2F60-brightgreen?style=flat-square" alt="Build" />
+    <img src="https://img.shields.io/badge/Next.js-000000?style=flat-square&logo=nextdotjs&logoColor=white" alt="Next.js" />
+    <img src="https://img.shields.io/badge/TypeScript-3178C6?style=flat-square&logo=typescript&logoColor=white" alt="TypeScript" />
+    <img src="https://img.shields.io/badge/Prisma-2D3748?style=flat-square&logo=prisma&logoColor=white" alt="Prisma" />
+    <img src="https://img.shields.io/badge/Tailwind_CSS-38bdf8?style=flat-square&logo=tailwindcss&logoColor=white" alt="Tailwind CSS" />
+    <img src="https://img.shields.io/badge/i18n-7_Languages-22c55e?style=flat-square&logo=googletranslate&logoColor=white" alt="i18n" />
+    <img src="https://img.shields.io/badge/license-MIT-16a34a?style=flat-square&logo=opensourceinitiative&logoColor=white" alt="MIT" />
+    <img src="https://img.shields.io/badge/build-60/60-22c55e?style=flat-square&logo=vercel&logoColor=white" alt="Build" />
   </p>
 </div>
 
