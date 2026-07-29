@@ -35,8 +35,13 @@ function RegisterForm() {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(form),
       });
+      const data = await res.json();
+      if (data.redirect) {
+        router.push(data.redirect);
+        router.refresh();
+        return;
+      }
       if (!res.ok) {
-        const data = await res.json();
         throw new Error(data.error ?? t("register.error"));
       }
       router.push("/onboarding");

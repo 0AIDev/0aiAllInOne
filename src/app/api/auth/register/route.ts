@@ -28,7 +28,7 @@ export async function POST(request: NextRequest) {
     return response;
   } catch (err) {
     if (err instanceof Error && err.message === "Email already registered") {
-      return NextResponse.redirect(new URL("/login", request.url));
+      return NextResponse.json({ redirect: "/login" }, { status: 200 });
     }
     if (err instanceof Error && "statusCode" in err) {
       const authErr = err as { statusCode: number };
