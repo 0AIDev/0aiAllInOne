@@ -28,7 +28,7 @@ export default function LoginPage() {
         const data = await res.json();
         throw new Error(data.error ?? t("login.error"));
       }
-      router.push("/dashboard");
+      router.push("/onboarding");
       router.refresh();
     } catch (err) {
       setError(err instanceof Error ? err.message : t("login.error"));
