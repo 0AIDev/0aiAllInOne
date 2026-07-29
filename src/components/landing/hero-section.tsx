@@ -41,8 +41,8 @@ export function HeroSection() {
 
       {/* Main heading */}
       <div className="relative">
-        <div className="absolute left-1/2 -translate-x-1/2 pointer-events-none -z-1" style={{ bottom: '-65%' }} aria-hidden="true">
-          <svg width="520" height="420" viewBox="-20 -20 480 400" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none" style={{ zIndex: -1 }} aria-hidden="true">
+          <svg width="520" height="420" viewBox="-20 -20 480 380" fill="none" xmlns="http://www.w3.org/2000/svg">
             <defs>
               <linearGradient id="heroZigzag" x1="200" y1="0" x2="200" y2="320" gradientUnits="userSpaceOnUse">
                 <stop stopOpacity="0.5" stopColor="#444444" />
