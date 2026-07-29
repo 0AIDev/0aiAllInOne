@@ -95,6 +95,11 @@ export async function POST(request: NextRequest) {
         );
         break;
 
+      // ─── Checkout ────────────────────────────
+      case "checkout.session.completed":
+        await handleCheckoutCompleted(event.data.object as Stripe.Checkout.Session);
+        break;
+
       // ─── Payment Intent ───────────────────────
       case "payment_intent.succeeded":
         break;
@@ -390,6 +395,25 @@ async function handleInvoicePaymentActionRequired(invoice: Stripe.Invoice) {
 }
 
 // ─── Helpers ────────────────────────────────────────────────
+
+async function handleCheckoutCompleted(session: Stripe.Checkout.Session) {
+  const tenantId = session.metadata?.tenantId;
+  if (!tenantId) return;
+
+  const credits = session.metadata?.credits;
+  if (credits) {
+    const numCredits = parseInt(credits, 10);
+    if (numCredits > 0) {
+      await prisma.tenant.update({
+        where: { id: tenantId },
+        data: { creditsRemaining: { increment: numCredits } },
+      });
+      await prisma.auditLog.create({
+        data: { tenantId, action: "credits_purchased", resource: "credits", details: JSON.stringify({ credits: numCredits, sessionId: session.id }) },
+      });
+    }
+  }
+}
 
 function mapStripeStatus(
   stripeStatus: Stripe.Subscription.Status

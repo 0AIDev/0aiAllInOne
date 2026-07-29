@@ -189,7 +189,22 @@ export function PlanCards({ plans, currentTier }: PlanCardsProps) {
             </button>
           </div>
           <button
-            onClick={() => setBuying(true)}
+            onClick={async () => {
+              setBuying(true);
+              try {
+                const res = await fetch("/api/stripe/create-checkout", {
+                  method: "POST",
+                  headers: { "Content-Type": "application/json" },
+                  body: JSON.stringify({ credits }),
+                });
+                const data = await res.json();
+                if (data.url) window.location.href = data.url;
+              } catch (err) {
+                console.error(err);
+              } finally {
+                setBuying(false);
+              }
+            }}
             disabled={buying}
             className="inline-flex items-center gap-2 rounded-[10px] bg-[#0F0F0E] px-6 py-2.5 text-sm font-medium text-white transition-colors hover:bg-[#3A3A37] disabled:opacity-50"
           >
