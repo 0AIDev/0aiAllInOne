@@ -737,7 +737,7 @@ src/
 ## ✦ Multi-Tenancy Model
 
 <p align="center">
-  <img src="https://placehold.co/900x400/F9F9F6/0F0F0E?text=Multi-Tenant+Architecture" alt="Multi-Tenant" width="80%" style="border-radius: 14px; border: 1px solid rgba(15,15,14,0.08);" />
+  <img src="public/8_1x_shots_so.png" alt="Multi-Tenant" width="80%" style="border-radius: 14px; border: 1px solid rgba(15,15,14,0.08);" />
 </p>
 
 <br/>
