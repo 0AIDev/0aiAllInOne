@@ -125,6 +125,204 @@ The system follows a layered architecture:
 
 All API routes are dynamic (server-rendered on demand). Static pages (landing, docs, pricing) are pre-rendered at build time.
 
+### OpenAI-Compatible Endpoint
+
+The gateway exposes a single endpoint that mirrors the OpenAI chat completions API:
+
+```bash
+curl https://api.ai0fy.dev/v1/chat/completions \
+  -H "Authorization: Bearer <your-api-key>" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "model": "auto",
+    "messages": [{"role": "user", "content": "Hello"}]
+  }'
+```
+
+The `model` field accepts either a specific provider model (e.g. `gpt-4o`, `claude-sonnet-4`) or routing strategy aliases (`auto`, `auto/fast`, `auto/cheap`, etc.). The `model` parameter is intercepted by the gateway engine before reaching any provider, unlike standard OpenAI APIs where model maps directly to a single backend.
+
+<br/>
+
+## ✦ Routing Engine — Deep Dive
+
+### Why 19 Strategies?
+
+Provider selection is fundamentally a **multi-armed bandit problem** with competing objectives:
+
+```
+Constraints:
+  ├─ Latency:    Some providers are 10x faster than others
+  ├─ Cost:       Token prices vary by 20x across providers
+  ├─ Reliability: Providers fail at different rates (P99 uptime varies)
+  ├─ Capacity:   Rate limits differ per tier (60 RPM → 10K RPM)
+  ├─ Quality:    Model capability varies by task type
+  └─ Affinity:   Certain providers excel at code vs. creative vs. reasoning
+```
+
+No single strategy is optimal for all workloads. The 19 strategies exist because each represents a different point in the Pareto frontier of these constraints. For example:
+
+- **Lowest Latency** (`auto/fast`) sacrifices cost for speed — uses P2C (Power of Two Choices) sampling on historical latency data
+- **Cheapest Per Token** (`auto/cheap`) sacrifices speed for cost — ranks providers by token price, filters by minimum reliability threshold
+- **Quality + Exploration** (`auto/smart`) uses epsilon-greedy: 90% quality-weighted + 10% random exploration to discover better models over time
+
+### Strategy Execution Flow
+
+```
+User sends request with model="auto/fast"
+        │
+        ▼
+┌───────────────────┐
+│ 1. Parse model     │  model = "auto/fast" → strategy = "Lowest Latency"
+│    parameter       │
+└────────┬──────────┘
+         │
+         ▼
+┌───────────────────┐
+│ 2. Filter pool    │  Remove:
+│                   │    • Providers in OPEN circuit-breaker state
+│                   │    • Providers exceeding rate limit
+│                   │    • Providers with stale health checks (>30s)
+└────────┬──────────┘
+         │
+         ▼
+┌───────────────────┐
+│ 3. Score & rank   │  For each remaining provider, compute score:
+│                   │    • Latency P50/P95 (exponential moving average)
+│                   │    • Cost per token (real-time from DB)
+│                   │    • Health score (weighted: success rate × recency)
+│                   │    • Available quota (tenant-level headroom)
+│                   │  Strategy weights determine final ranking
+└────────┬──────────┘
+         │
+         ▼
+┌───────────────────┐
+│ 4. Select & exec  │  Pick top-ranked provider → execute HTTP request
+│                   │  If failure → recurse to next provider (fallback chain)
+└────────┬──────────┘
+         │
+         ▼
+┌───────────────────┐
+│ 5. Record metrics │  • Latency → update EMA for strategy
+│                   │  • Success/failure → update circuit breaker
+│                   │  • Token count → decrement tenant quota
+│                   │  • Cost → accumulate billing record
+└───────────────────┘
+```
+
+### Scoring Formula
+
+Each provider is scored using a weighted sum of normalized metrics:
+
+```
+score(p) = w₁ × norm(reliability) + w₂ × norm(1/latency) + w₃ × norm(1/cost)
+           + w₄ × norm(headroom) + w₅ × norm(quality)
+```
+
+Where weights `w₁..w₅` vary per strategy. For example, `auto/fast` heavily weights latency (`w₂=0.6`), while `auto/cheap` weights cost (`w₃=0.7`). `Auto (12-Factor)` uses equal weights across all 12 tracked metrics.
+
+### Circuit Breaker — Why?
+
+Without circuit breakers, a failing provider would be retried on every request, causing:
+1. **Latency spikes**: Waiting for timeouts before falling back
+2. **Cascading failures**: All requests pile up on the next provider
+3. **Cost waste**: Paying for failed requests
+
+The circuit breaker transitions through three states:
+
+```
+┌─────────┐     failure > threshold     ┌──────┐
+│  CLOSED │ ──────────────────────────▶ │ OPEN │
+│ (normal)│                             │(fast │
+│         │◀────────────────────────────│ fail)│
+└─────────┘   resetTimeout elapsed     └──┬───┘
+      ▲                                   │
+      │    success > threshold            │
+      └───────────────────────────────────┘
+              ┌────────────┐
+              │ HALF_OPEN  │
+              │ (probing)  │
+              └────────────┘
+```
+
+- **CLOSED**: Normal operation. Failures counted. After `threshold` consecutive failures → OPEN.
+- **OPEN**: Requests fail instantly. After `resetTimeout` → HALF_OPEN.
+- **HALF_OPEN**: One probe request. Success → CLOSED. Failure → OPEN.
+
+### Why P2C (Power of Two Choices)?
+
+P2C is the default strategy for latency-sensitive routing because it provides near-optimal load distribution with minimal overhead:
+
+```typescript
+// Simplified from p2c-router.ts
+async function p2cSelect(providers: Provider[]): Promise<Provider> {
+  // Pick 2 random providers
+  const [a, b] = randomSample(providers, 2)
+  // Choose the one with fewer active connections
+  return a.activeConnections < b.activeConnections ? a : b
+}
+```
+
+**Why P2C instead of least-connections (global)?** Global least-connections requires a shared counter with synchronization overhead. P2C achieves 99% of the optimal distribution with O(1) complexity and no shared state — critical for horizontal scaling.
+
+<br/>
+
+## ✦ CLI
+
+The AI0FY CLI (`packages/cli/`) is a command-line tool for interacting with the gateway directly from your terminal. Built with TypeScript and distributed as an npm package.
+
+### Installation
+
+```bash
+npm install -g @ai0fy/cli
+```
+
+### Commands
+
+| Command | Description |
+|---|---|
+| `ai0fy chat` | Interactive chat session with any provider |
+| `ai0fy models` | List available models and strategies |
+| `ai0fy keys` | Manage API keys (list/create/revoke) |
+| `ai0fy usage` | View current billing and token usage |
+| `ai0fy providers` | List all 290+ providers with status |
+| `ai0fy switch <strategy>` | Change active routing strategy |
+| `ai0fy status` | System health and latency stats |
+
+### How It Works
+
+The CLI uses the same API endpoint as any OpenAI-compatible client. It sets the base URL to `https://api.ai0fy.dev/v1` and passes your API key via the `AI0FY_API_KEY` environment variable or `--key` flag.
+
+```bash
+# Interactive chat
+ai0fy chat --model auto/fast
+
+# One-shot prompt
+ai0fy chat "Explain quantum computing" --model gpt-4o
+
+# List all providers with health status
+ai0fy providers --health
+
+# Switch strategy
+ai0fy switch auto/cheap
+```
+
+Under the hood, the CLI uses the `@ai0fy/sdk` package which wraps the OpenAI SDK client with AI0FY-specific features:
+- **Automatic strategy resolution**: Translates strategy names to API parameters
+- **Streaming support**: SSE-based token streaming for real-time responses
+- **Error formatting**: Circuit breaker errors are displayed with fallback suggestions
+- **Multi-turn context**: Maintains conversation history with token counting
+
+The CLI also supports a **config file** at `~/.ai0fy/config.json`:
+
+```json
+{
+  "apiKey": "sk-...",
+  "defaultModel": "auto",
+  "defaultStrategy": "auto/fast",
+  "outputFormat": "markdown"
+}
+```
+
 <br/>
 
 ## ✦ Gateway Engine
