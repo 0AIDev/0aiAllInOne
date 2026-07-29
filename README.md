@@ -34,7 +34,7 @@
     <img src="https://img.shields.io/badge/Tailwind_CSS-38bdf8?style=flat-square&logo=tailwindcss&logoColor=white" alt="Tailwind CSS" />
     <img src="https://img.shields.io/badge/i18n-7_Languages-22c55e?style=flat-square&logo=googletranslate&logoColor=white" alt="i18n" />
     <img src="https://img.shields.io/badge/license-MIT-16a34a?style=flat-square&logo=opensourceinitiative&logoColor=white" alt="MIT" />
-    <img src="https://img.shields.io/badge/build-60/60-22c55e?style=flat-square&logo=vercel&logoColor=white" alt="Build" />
+
   </p>
 </div>
 
