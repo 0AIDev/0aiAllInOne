@@ -14,7 +14,7 @@ export default async function DashboardLayout({
     <div className="flex h-screen overflow-hidden">
       <DashboardSidebar
         email={session.email}
-        isAdmin={["OWNER", "ADMIN"].includes(session.role) || session.email === "admin@ai0fy.local"}
+        isAdmin={session.email === "admin@ai0fy.local"}
       />
       <main className="ml-60 flex-1 overflow-y-auto bg-[#F9F9F6]">{children}</main>
     </div>
