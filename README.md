@@ -112,6 +112,37 @@ The system follows a layered architecture:
 
 <br/>
 
+## ✦ User Dashboard
+
+After authentication, users are redirected to their dashboard — a full-featured control panel for managing their AI gateway usage.
+
+### Pages
+
+| Route | Description |
+|---|---|
+| `/dashboard` | **Overview** — Welcome message, token usage summary, active API keys count, current plan, monthly cost |
+| `/dashboard/api-keys` | **API Keys** — Create, edit, and revoke API keys with labeled environments (dev/staging/prod) |
+| `/dashboard/usage` | **Usage Analytics** — Interactive Recharts line chart showing tokens (input/output/cache), requests, and cost over 30 days |
+| `/dashboard/history` | **Request History** — Last 100 API calls with status badges (Success/Fallback/Error), latency, model, and provider |
+| `/dashboard/subscription` | **Subscription** — Current plan details, billing history table, payment method |
+| `/dashboard/creator` | **Creator Portal** — Skills management, analytics, payout requests, Stripe Connect integration |
+| `/dashboard/creator/skills/new` | **Skill Builder** — Form to create new prompt skills with AI-powered optimization |
+| `/dashboard/creator/payouts` | **Payouts** — Wallet balance, revenue split, payout history |
+
+### API Key Management
+
+Users can create multiple API keys with labels, copy the key value, and revoke keys individually. Keys are used to authenticate requests to `/v1/chat/completions` and are scoped per tenant.
+
+### Usage Tracking
+
+The usage page displays:
+- **Tokens**: Input, output, and cache hit tokens over the last 30 days
+- **Requests**: Total request count per day
+- **Cost**: Accumulated cost in USD
+- **Provider breakdown**: Usage distribution across providers
+
+<br/>
+
 ## ✦ API Routes
 
 <p align="center">
