@@ -11,9 +11,9 @@ export default async function AdminLayout({
   if (!session || session.role === "MEMBER") redirect("/login");
 
   return (
-    <div className="flex min-h-screen">
+    <div className="flex h-screen overflow-hidden">
       <AdminSidebar email={session.email} />
-      <main className="ml-60 flex-1 overflow-auto bg-[#F9F9F6]">{children}</main>
+      <main className="ml-60 flex-1 overflow-y-auto bg-[#F9F9F6]">{children}</main>
     </div>
   );
 }
