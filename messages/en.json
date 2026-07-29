@@ -315,6 +315,7 @@
     "language": "Language",
     "features": "Features",
     "api": "API",
+    "download": "Download",
     "apiReference": "API Reference",
     "openapiSpec": "OpenAPI Spec",
     "sdks": "SDKs",

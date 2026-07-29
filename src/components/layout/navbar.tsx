@@ -18,7 +18,7 @@ const NAV_LINKS = [
   { href: "/providers", label: "Providers" },
   { href: "/pricing", label: "Pricing" },
   { href: "/docs", label: "Docs" },
-  { href: "/api-reference", label: "API" },
+  { href: "/download", label: "Download" },
   { href: "/cli", label: "CLI" },
 ];
 
