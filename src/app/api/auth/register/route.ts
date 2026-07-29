@@ -27,6 +27,9 @@ export async function POST(request: NextRequest) {
     response.headers.set("Set-Cookie", setSessionCookie(token));
     return response;
   } catch (err) {
+    if (err instanceof Error && err.message === "Email already registered") {
+      return NextResponse.redirect(new URL("/login", request.url));
+    }
     if (err instanceof Error && "statusCode" in err) {
       const authErr = err as { statusCode: number };
       return NextResponse.json(
