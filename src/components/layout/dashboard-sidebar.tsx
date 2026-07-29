@@ -37,9 +37,10 @@ const adminLinks = [
 interface DashboardSidebarProps {
   email: string;
   isAdmin: boolean;
+  credits?: number;
 }
 
-export function DashboardSidebar({ email, isAdmin }: DashboardSidebarProps) {
+export function DashboardSidebar({ email, isAdmin, credits }: DashboardSidebarProps) {
   const pathname = usePathname();
 
   return (
@@ -61,6 +62,18 @@ export function DashboardSidebar({ email, isAdmin }: DashboardSidebarProps) {
           </svg>
         </Link>
       </div>
+
+      {credits !== undefined && (
+        <div className="flex items-center gap-2 px-5 py-2">
+          <div className="flex h-6 w-6 items-center justify-center rounded-md bg-[rgba(15,15,14,0.06)]">
+            <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="text-[#0F0F0E]"><circle cx="12" cy="12" r="10"/><path d="M12 6v12"/><path d="M6 12h12"/></svg>
+          </div>
+          <div className="flex-1">
+            <p className="text-[11px] font-medium text-[#7A7870]" style={{ fontFamily: "'Inter Tight', sans-serif" }}>Credits</p>
+            <p className="text-sm font-semibold text-[#0F0F0E]" style={{ fontFamily: "'Inter Tight', sans-serif" }}>{credits.toLocaleString()}</p>
+          </div>
+        </div>
+      )}
 
       <nav className="flex-1 space-y-0.5 overflow-y-auto px-3 py-4">
         {userLinks.map((link) => {
