@@ -43,9 +43,9 @@
 
 <br/>
 
-## ✦ Overview
+##  Overview
 
-**AI0FY** is a production-ready, multi-tenant AI Gateway SaaS built with Next.js 15.5. It provides a **unified API endpoint** that connects to over **290 AI providers** with automatic fallback, intelligent routing, prompt compression, and enterprise-grade reliability — all wrapped in a beautiful, minimal interface inspired by TranscriptMagic.
+**AI0FY** is a production-ready, multi-tenant AI Gateway SaaS built with Next.js 15.5. It provides a **unified API endpoint** that connects to over **290 AI providers** with automatic fallback, intelligent routing, prompt compression, and enterprise-grade reliability — all wrapped in a beautiful, minimal interface inspired by 0ai.
 
 <br/>
 
@@ -55,7 +55,7 @@
 
 <br/>
 
-## ✦ Features
+##  Features
 
 <div align="center">
   <table>
@@ -92,7 +92,7 @@
 
 <br/>
 
-## ✦ Quick Start
+##  Quick Start
 
 ```bash
 # 1. Clone & install
@@ -121,7 +121,7 @@ npm start
 
 <br/>
 
-## ✦ Architecture
+##  Architecture
 
 ```
 src/
@@ -142,7 +142,7 @@ src/
 
 <br/>
 
-## ✦ i18n — 7 Languages
+##  i18n — 7 Languages
 
 <p align="center">
   <img src="https://placehold.co/700x60/F9F9F6/0F0F0E?text=🇬🇧+English+🇮🇹+Italiano+🇫🇷+Fran%C3%A7ais+🇩🇪+Deutsch+🇪🇸+Espa%C3%B1ol+🇨🇳+中文+🇯🇵+日本語" alt="Languages" width="90%" />
@@ -168,7 +168,7 @@ Custom `LocaleProvider` with React Context + persistent cookie. No URL prefix re
 
 <br/>
 
-## ✦ Tech Stack
+##  Tech Stack
 
 | Category | Technology |
 |---|---|
@@ -184,7 +184,7 @@ Custom `LocaleProvider` with React Context + persistent cookie. No URL prefix re
 
 <br/>
 
-## ✦ Screenshots
+##  Screenshots
 
 <!-- Replace placeholders with actual screenshots -->
 
@@ -201,7 +201,7 @@ Custom `LocaleProvider` with React Context + persistent cookie. No URL prefix re
 
 <br/>
 
-## ✦ Deploy
+##  Deploy
 
 ```bash
 npm run build  # 60/60 pages, 0 errors
