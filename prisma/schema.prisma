@@ -1,6 +1,6 @@
 // ============================================================
 // AI0FY — Multi-Tenant AI Gateway SaaS
-// SQLite + Prisma Schema (dev)
+// PostgreSQL + Prisma Schema (production)
 // ============================================================
 
 generator client {
@@ -8,8 +8,9 @@ generator client {
 }
 
 datasource db {
-  provider = "sqlite"
-  url      = "file:./dev.db"
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+  directUrl = env("DIRECT_URL")
 }
 
 // ─── Enums ──────────────────────────────────────────────────
@@ -126,14 +127,6 @@ model User {
   tenant        Tenant      @relation(fields: [tenantId], references: [id], onDelete: Cascade)
   sessions      Session[]
   apiKeys       ApiKey[]    @relation("UserApiKeys")
-
-  stripeConnectId       String?
-  stripeConnectVerified Boolean   @default(false)
-  walletBalance         Float     @default(0)
-  totalEarnings         Float     @default(0)
-  skills                Skill[]
-  purchases             Transaction[]
-  payouts               Payout[]
 
   @@index([tenantId])
   @@index([email])
@@ -497,92 +490,4 @@ model PromptCache {
   @@unique([tenantId, hash, model])
   @@index([tenantId, hash])
   @@map("prompt_cache")
-}
-
-// ─── Creator Portal / Marketplace ────────────────────────────
-
-enum SkillStatus {
-  DRAFT
-  PUBLISHED
-  REJECTED
-  ARCHIVED
-}
-
-enum TransactionStatus {
-  PENDING
-  COMPLETED
-  REFUNDED
-  CANCELLED
-}
-
-enum PayoutStatus {
-  PENDING
-  PROCESSING
-  PAID
-  FAILED
-}
-
-model Skill {
-  id              String      @id @default(uuid())
-  creatorId       String
-  title           String
-  slug            String      @unique
-  description     String
-  content         String
-  category        String
-  triggers        String      @default("[]")
-  status          SkillStatus @default(DRAFT)
-  priceCents      Int         @default(0)
-  revenueShare    Int         @default(80)
-  downloads       Int         @default(0)
-  views           Int         @default(0)
-  rating          Float       @default(0)
-  version         String      @default("1.0.0")
-  createdAt       DateTime    @default(now())
-  updatedAt       DateTime    @updatedAt
-
-  creator         User        @relation(fields: [creatorId], references: [id], onDelete: Cascade)
-  transactions    Transaction[]
-
-  @@index([creatorId])
-  @@index([slug])
-  @@index([status])
-  @@index([category])
-  @@map("skills")
-}
-
-model Transaction {
-  id              String             @id @default(uuid())
-  buyerId         String
-  skillId         String
-  amountGross     Int                @default(0)
-  platformFee     Int                @default(0)
-  amountNet       Int                @default(0)
-  status          TransactionStatus  @default(PENDING)
-  stripePaymentId String?
-  createdAt       DateTime           @default(now())
-
-  buyer           User               @relation(fields: [buyerId], references: [id], onDelete: Cascade)
-  skill           Skill              @relation(fields: [skillId], references: [id], onDelete: Cascade)
-
-  @@index([buyerId])
-  @@index([skillId])
-  @@index([status])
-  @@map("transactions")
-}
-
-model Payout {
-  id              String        @id @default(uuid())
-  creatorId       String
-  amount          Int           @default(0)
-  status          PayoutStatus  @default(PENDING)
-  stripePayoutId  String?
-  processedAt     DateTime?
-  createdAt       DateTime      @default(now())
-
-  creator         User          @relation(fields: [creatorId], references: [id], onDelete: Cascade)
-
-  @@index([creatorId])
-  @@index([status])
-  @@map("payouts")
 }

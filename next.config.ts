@@ -1,7 +1,6 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  output: "standalone",
   serverExternalPackages: ["@prisma/client", "bcryptjs", "ioredis", "@opentelemetry/auto-instrumentations-node", "@opentelemetry/sdk-node", "require-in-the-middle", "pino", "thread-stream"],
   poweredByHeader: false,
   compress: true,
