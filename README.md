@@ -761,6 +761,32 @@ Tenant (Enterprise) ─┬─ User (admin@...)
 
 <br/>
 
+## ✦ Desktop App (Tauri)
+
+AI0FY is available as a native desktop app built with Tauri. It wraps the web app in a dedicated window with tray icon support.
+
+### Prerequisites
+
+- Install **Rust**: https://rustup.rs
+- Windows: Install **Microsoft Visual Studio Build Tools** (or VS 2022 with "Desktop development with C++")
+
+### Build
+
+```bash
+npm run desktop:install
+npm run desktop:build
+# Output: desktop/src-tauri/target/release/AI0FY.exe
+```
+
+### Development
+
+```bash
+npm run desktop:dev
+# Opens a window pointing to https://ai0fy.vercel.app
+```
+
+<br/>
+
 ## ✦ Deploy
 
 ### Production Build
