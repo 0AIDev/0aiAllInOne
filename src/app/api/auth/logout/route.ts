@@ -10,7 +10,7 @@ export async function POST(_request: NextRequest) {
     await deleteSession(token);
   }
 
-  const response = NextResponse.redirect(new URL("/", _request.url));
+  const response = NextResponse.redirect(new URL("/", _request.url), { status: 302 });
   response.cookies.set("ai0fy_session", "", {
     httpOnly: true,
     path: "/",
