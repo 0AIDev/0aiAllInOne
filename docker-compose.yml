@@ -1,0 +1,92 @@
+version: "3.9"
+
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: aistack-app
+    restart: unless-stopped
+    ports:
+      - "${PORT:-3000}:3000"
+    env_file:
+      - .env.production
+    depends_on:
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_started
+    networks:
+      - aistack-network
+    deploy:
+      resources:
+        limits:
+          memory: 512M
+        reservations:
+          memory: 256M
+
+  postgres:
+    image: postgres:16-alpine
+    container_name: aistack-postgres
+    restart: unless-stopped
+    ports:
+      - "${POSTGRES_PORT:-5432}:5432"
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER:-aistack}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-aistack_secret}
+      POSTGRES_DB: ${POSTGRES_DB:-aistack}
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+    networks:
+      - aistack-network
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER:-aistack} -d ${POSTGRES_DB:-aistack}"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    deploy:
+      resources:
+        limits:
+          memory: 256M
+
+  redis:
+    image: redis:7-alpine
+    container_name: aistack-redis
+    restart: unless-stopped
+    ports:
+      - "${REDIS_PORT:-6379}:6379"
+    command: redis-server --appendonly yes --maxmemory 256mb --maxmemory-policy allkeys-lru
+    volumes:
+      - redis-data:/data
+    networks:
+      - aistack-network
+    deploy:
+      resources:
+        limits:
+          memory: 128M
+
+  migrate:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: aistack-migrate
+    command: npx prisma migrate deploy
+    env_file:
+      - .env.production
+    depends_on:
+      postgres:
+        condition: service_healthy
+    networks:
+      - aistack-network
+    profiles:
+      - setup
+
+networks:
+  aistack-network:
+    driver: bridge
+
+volumes:
+  postgres-data:
+    driver: local
+  redis-data:
+    driver: local

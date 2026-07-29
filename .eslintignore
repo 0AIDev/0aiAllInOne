@@ -1,0 +1,5 @@
+omnigit
+node_modules
+.next
+coverage
+prisma/dev.db

@@ -1,0 +1,493 @@
+// ============================================================
+// AIStack — Multi-Tenant AI Gateway SaaS
+// PostgreSQL + Prisma Schema (production)
+// ============================================================
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+  directUrl = env("DIRECT_URL")
+}
+
+// ─── Enums ──────────────────────────────────────────────────
+
+enum TenantRole {
+  OWNER
+  ADMIN
+  MEMBER
+}
+
+enum SubscriptionStatus {
+  TRIALING
+  ACTIVE
+  PAST_DUE
+  CANCELED
+  INCOMPLETE
+  INCOMPLETE_EXPIRED
+  UNPAID
+  PAUSED
+}
+
+enum PlanTier {
+  FREE
+  STARTER
+  PRO
+  BUSINESS
+  ENTERPRISE
+}
+
+enum BillingInterval {
+  MONTHLY
+  YEARLY
+}
+
+enum ProviderStatus {
+  ACTIVE
+  DEGRADED
+  DOWN
+  MAINTENANCE
+  DISABLED
+}
+
+enum KeyStatus {
+  ACTIVE
+  REVOKED
+  EXPIRED
+}
+
+enum RequestStatus {
+  SUCCESS
+  ERROR
+  RATE_LIMITED
+  FALLBACK
+  TIMEOUT
+}
+
+enum RoutingStrategy {
+  PRIORITY
+  COST_OPTIMIZED
+  ROUND_ROBIN
+  LEAST_USED
+  WEIGHTED
+  FILL_FIRST
+  FUSION
+}
+
+// ─── Tenant & Users ─────────────────────────────────────────
+
+model Tenant {
+  id          String    @id @default(uuid())
+  name        String
+  slug        String    @unique
+  planTier    PlanTier  @default(FREE)
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+  deletedAt   DateTime?
+
+  stripeCustomerId  String?        @unique
+  subscription      Subscription?
+  billingEmail      String?
+  billingAddress    String?
+
+  hardQuotaTokens     Int      @default(1000000)
+  softQuotaTokens     Int      @default(800000)
+  tokensUsedThisMonth Int      @default(0)
+  quotaResetAt        DateTime @default(now())
+
+  users           User[]
+  apiKeys         ApiKey[]
+  usageRecords    UsageRecord[]
+  providerPool    ProviderPoolEntry[]
+  webhookConfigs  WebhookConfig[]
+  alertConfigs    AlertConfig[]
+  routeRules      RouteRule[]
+
+  @@index([slug])
+  @@index([stripeCustomerId])
+  @@index([planTier])
+  @@map("tenants")
+}
+
+model User {
+  id            String      @id @default(uuid())
+  tenantId      String
+  email         String      @unique
+  passwordHash  String
+  name          String?
+  role          TenantRole  @default(MEMBER)
+  isActive      Boolean     @default(true)
+  lastLoginAt   DateTime?
+  createdAt     DateTime    @default(now())
+  updatedAt     DateTime    @updatedAt
+
+  tenant        Tenant      @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  sessions      Session[]
+  apiKeys       ApiKey[]    @relation("UserApiKeys")
+
+  @@index([tenantId])
+  @@index([email])
+  @@map("users")
+}
+
+model Session {
+  id           String    @id @default(uuid())
+  userId       String
+  token        String    @unique
+  expiresAt    DateTime
+  createdAt    DateTime  @default(now())
+  lastUsedAt   DateTime  @default(now())
+  ipAddress    String?
+  userAgent    String?
+
+  user         User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId])
+  @@index([token])
+  @@map("sessions")
+}
+
+// ─── API Keys ────────────────────────────────────────────────
+
+model ApiKey {
+  id              String    @id @default(uuid())
+  tenantId        String
+  userId          String?
+  name            String
+  prefixKey       String
+  hashedKey       String    @unique
+  status          KeyStatus @default(ACTIVE)
+  scope           String    @default("[]")
+  allowedModels   String    @default("[]")
+  createdAt       DateTime  @default(now())
+  expiresAt       DateTime?
+  lastUsedAt      DateTime?
+
+  rpmLimit        Int       @default(60)
+  tpmLimit        Int       @default(100000)
+  tpdLimit        Int       @default(1000000)
+
+  tenant          Tenant    @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  createdBy       User?     @relation("UserApiKeys", fields: [userId], references: [id], onDelete: SetNull)
+  usageRecords    UsageRecord[]
+
+  @@index([tenantId])
+  @@index([userId])
+  @@index([hashedKey])
+  @@index([prefixKey])
+  @@map("api_keys")
+}
+
+// ─── Provider Pool (Admin-managed) ─────────────────────────
+
+model Provider {
+  id              String         @id @default(uuid())
+  name            String         @unique
+  slug            String         @unique
+  baseUrl         String
+  apiKeyHeader    String         @default("Authorization")
+  apiKeyPrefix    String         @default("Bearer ")
+  status          ProviderStatus @default(ACTIVE)
+  priority        Int            @default(10)
+  maxRetries      Int            @default(3)
+  timeoutMs       Int            @default(60000)
+  capabilities    String         @default("[]")
+  metadata        String         @default("{}")
+  needsAuth       Boolean        @default(true)
+  createdAt       DateTime       @default(now())
+  updatedAt       DateTime       @updatedAt
+
+  models          ProviderModel[]
+  keys            ProviderKey[]
+  poolEntries     ProviderPoolEntry[]
+  healthChecks    ProviderHealthCheck[]
+
+  @@index([slug])
+  @@index([status])
+  @@map("providers")
+}
+
+model ProviderModel {
+  id              String    @id @default(uuid())
+  providerId      String
+  modelId         String
+  displayName     String?
+  costPer1kInput  Float     @default(0)
+  costPer1kOutput Float     @default(0)
+  contextWindow   Int       @default(8192)
+  maxOutputTokens Int       @default(4096)
+  supportsVision  Boolean   @default(false)
+  supportsTools   Boolean   @default(false)
+  supportsStream  Boolean   @default(true)
+  isActive        Boolean   @default(true)
+  metadata        String    @default("{}")
+
+  provider        Provider  @relation(fields: [providerId], references: [id], onDelete: Cascade)
+  poolEntries     ProviderPoolEntry[]
+
+  @@unique([providerId, modelId])
+  @@index([providerId])
+  @@index([modelId])
+  @@map("provider_models")
+}
+
+model ProviderKey {
+  id              String    @id @default(uuid())
+  providerId      String
+  label           String?
+  encryptedKey    String
+  isActive        Boolean   @default(true)
+  rateLimitRpm    Int?
+  rateLimitTpm    Int?
+  quotaRemaining  Int?
+  quotaTotal      Int?
+  quotaResetAt    DateTime?
+  lastErrorAt     DateTime?
+  lastErrorMsg    String?
+  consecutiveFails Int     @default(0)
+  cooldownUntil   DateTime?
+  priority        Int       @default(0)
+  createdAt       DateTime  @default(now())
+  updatedAt       DateTime  @updatedAt
+
+  provider        Provider  @relation(fields: [providerId], references: [id], onDelete: Cascade)
+
+  @@index([providerId])
+  @@index([isActive])
+  @@map("provider_keys")
+}
+
+model ProviderPoolEntry {
+  id              String    @id @default(uuid())
+  tenantId        String
+  providerId      String
+  modelId         String
+  priority        Int       @default(10)
+  weight          Float     @default(1.0)
+  maxTokens       Int?
+  isEnabled       Boolean   @default(true)
+  createdAt       DateTime  @default(now())
+
+  tenant          Tenant          @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  provider        Provider        @relation(fields: [providerId], references: [id], onDelete: Cascade)
+  model           ProviderModel   @relation(fields: [modelId], references: [id], onDelete: Cascade)
+
+  @@unique([tenantId, providerId, modelId])
+  @@index([tenantId])
+  @@map("provider_pool_entries")
+}
+
+model ProviderHealthCheck {
+  id               String         @id @default(uuid())
+  providerId       String
+  status           ProviderStatus @default(ACTIVE)
+  latencyMs        Int            @default(0)
+  errorRate        Float          @default(0)
+  successRate      Float          @default(100)
+  lastCheckedAt    DateTime       @default(now())
+  lastSuccessAt    DateTime?
+  consecutiveFails Int            @default(0)
+  metadata         String         @default("{}")
+
+  provider         Provider       @relation(fields: [providerId], references: [id], onDelete: Cascade)
+
+  @@index([providerId])
+  @@map("provider_health_checks")
+}
+
+// ─── Usage Tracking ─────────────────────────────────────────
+
+model UsageRecord {
+  id               String        @id @default(uuid())
+  tenantId         String
+  apiKeyId         String?
+  providerId       String?
+  modelId          String
+  requestModel     String
+  status           RequestStatus @default(SUCCESS)
+  tokensInput      Int           @default(0)
+  tokensOutput     Int           @default(0)
+  tokensCacheHit   Int           @default(0)
+  cost             Float         @default(0)
+  latencyMs        Int           @default(0)
+  ttftMs           Int           @default(0)
+  compressionRatio Float         @default(0)
+  fallbackUsed     Boolean       @default(false)
+  fallbackChain    String        @default("[]")
+  errorMessage     String?
+  ipAddress        String?
+  userAgent        String?
+  requestHash      String?
+  createdAt        DateTime      @default(now())
+
+  tenant           Tenant        @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  apiKey           ApiKey?       @relation(fields: [apiKeyId], references: [id], onDelete: SetNull)
+
+  @@index([tenantId, createdAt])
+  @@index([apiKeyId])
+  @@index([providerId])
+  @@index([status])
+  @@index([createdAt])
+  @@map("usage_records")
+}
+
+// ─── Subscriptions & Billing ────────────────────────────────
+
+model Subscription {
+  id                  String             @id @default(uuid())
+  tenantId            String             @unique
+  stripeSubscriptionId String            @unique
+  stripePriceId       String
+  status              SubscriptionStatus @default(ACTIVE)
+  planTier            PlanTier
+  billingInterval     BillingInterval    @default(MONTHLY)
+  currentPeriodStart  DateTime
+  currentPeriodEnd    DateTime
+  cancelAtPeriodEnd   Boolean            @default(false)
+  canceledAt          DateTime?
+  trialEndsAt         DateTime?
+  createdAt           DateTime           @default(now())
+  updatedAt           DateTime           @updatedAt
+
+  tenant              Tenant             @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  invoices            Invoice[]
+
+  @@index([tenantId])
+  @@index([stripeSubscriptionId])
+  @@map("subscriptions")
+}
+
+model Invoice {
+  id              String       @id @default(uuid())
+  subscriptionId  String
+  stripeInvoiceId String       @unique
+  amount          Int          @default(0)
+  currency        String       @default("usd")
+  status          String
+  hostedUrl       String?
+  invoicePdf      String?
+  paidAt          DateTime?
+  createdAt       DateTime     @default(now())
+
+  subscription    Subscription @relation(fields: [subscriptionId], references: [id], onDelete: Cascade)
+
+  @@index([subscriptionId])
+  @@map("invoices")
+}
+
+// ─── Plans ───────────────────────────────────────────────────
+
+model Plan {
+  id                  String   @id @default(uuid())
+  tier                PlanTier @unique
+  name                String
+  description         String?
+  monthlyPrice        Int      @default(0)
+  yearlyPrice         Int      @default(0)
+  stripePriceIdMonthly String?
+  stripePriceIdYearly  String?
+  tokensPerMonth      Int
+  requestsPerMin      Int      @default(60)
+  maxApiKeys          Int      @default(5)
+  modelsIncluded      String   @default("[]")
+  features            String   @default("[]")
+  isPublic            Boolean  @default(true)
+  sortOrder           Int      @default(0)
+  createdAt           DateTime @default(now())
+  updatedAt           DateTime @updatedAt
+
+  @@map("plans")
+}
+
+// ─── Routing Configuration ──────────────────────────────────
+
+model RouteRule {
+  id              String          @id @default(uuid())
+  tenantId        String
+  name            String
+  matchModel      String
+  strategy        RoutingStrategy @default(PRIORITY)
+  targetChain     String          @default("[]")
+  isActive        Boolean         @default(true)
+  priority        Int             @default(0)
+  createdAt       DateTime        @default(now())
+  updatedAt       DateTime        @updatedAt
+
+  tenant          Tenant          @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+
+  @@index([tenantId])
+  @@map("route_rules")
+}
+
+// ─── Analytics & Logging ────────────────────────────────────
+
+model AuditLog {
+  id          String   @id @default(uuid())
+  tenantId    String
+  userId      String?
+  action      String
+  resource    String
+  resourceId  String?
+  details     String   @default("{}")
+  ipAddress   String?
+  createdAt   DateTime @default(now())
+
+  @@index([tenantId, createdAt])
+  @@index([action])
+  @@map("audit_logs")
+}
+
+// ─── Webhook & Alerts ───────────────────────────────────────
+
+model WebhookConfig {
+  id          String   @id @default(uuid())
+  tenantId    String
+  url         String
+  events      String   @default("[]")
+  secret      String
+  isActive    Boolean  @default(true)
+  createdAt   DateTime @default(now())
+
+  tenant      Tenant   @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+
+  @@index([tenantId])
+  @@map("webhook_configs")
+}
+
+model AlertConfig {
+  id              String   @id @default(uuid())
+  tenantId        String
+  name            String
+  type            String
+  threshold       Float    @default(80)
+  channels        String   @default("[]")
+  isActive        Boolean  @default(true)
+  createdAt       DateTime @default(now())
+
+  tenant          Tenant   @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+
+  @@index([tenantId])
+  @@map("alert_configs")
+}
+
+// ─── Prompt Cache ───────────────────────────────────────────
+
+model PromptCache {
+  id              String   @id @default(uuid())
+  tenantId        String
+  hash            String
+  model           String
+  messagesJson    String
+  responseJson    String
+  tokensSaved     Int      @default(0)
+  hitCount        Int      @default(0)
+  expiresAt       DateTime
+  createdAt       DateTime @default(now())
+
+  @@unique([tenantId, hash, model])
+  @@index([tenantId, hash])
+  @@map("prompt_cache")
+}
