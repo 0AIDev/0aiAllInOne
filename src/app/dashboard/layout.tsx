@@ -11,12 +11,12 @@ export default async function DashboardLayout({
   if (!session) redirect("/login");
 
   return (
-    <div className="flex h-screen overflow-hidden">
+    <div className="flex min-h-screen">
       <DashboardSidebar
         email={session.email}
         isAdmin={session.email === "admin@ai0fy.local"}
       />
-      <main className="ml-60 flex-1 overflow-y-auto bg-[#F9F9F6]">{children}</main>
+      <main className="ml-60 min-h-screen flex-1 bg-[#F9F9F6]">{children}</main>
     </div>
   );
 }
