@@ -27,11 +27,10 @@ export function HeroSection() {
 
   return (
     <section className="relative flex min-h-[90vh] flex-col items-center justify-center px-4 py-8 sm:px-6 lg:px-8">
-      <div className="absolute inset-0 flex items-center justify-center pointer-events-none" aria-hidden="true" style={{ background: 'rgba(255,0,0,0.1)' }}>
-        <svg width="700" height="560" viewBox="-40 -40 520 440" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M398.97 0.5L147.576 319.5H1.03027L37.5996 273.081L120.167 169.603L120.171 169.598L215.342 47.5605L215.343 47.5615L252.424 0.5H398.97ZM264.544 273.271H372.527L336.082 319.498H189.886L202.642 303.307C217.584 284.34 240.398 273.271 264.544 273.271ZM209.164 0.5L202.786 8.58887C183.782 32.6885 154.782 46.752 124.091 46.752H25.9805L62.4268 0.5H209.164Z" fill="#0F0F0E" />
-          <path d="M398.97 0.5L147.576 319.5H1.03027L37.5996 273.081L120.167 169.603L120.171 169.598L215.342 47.5605L215.343 47.5615L252.424 0.5H398.97ZM264.544 273.271H372.527L336.082 319.498H189.886L202.642 303.307C217.584 284.34 240.398 273.271 264.544 273.271ZM209.164 0.5L202.786 8.58887C183.782 32.6885 154.782 46.752 124.091 46.752H25.9805L62.4268 0.5H209.164Z" stroke="#0F0F0E" strokeWidth="1" fill="none" />
-        </svg>
+      <div className="absolute inset-0 flex items-center justify-center pointer-events-none" aria-hidden="true">
+        <div style={{ width: 'clamp(300px, 80vw, 600px)', height: 'auto' }}>
+          <img src="/hero-bg-logo.svg" alt="" style={{ display: 'block', width: '100%', height: 'auto' }} />
+        </div>
       </div>
       {/* Eyebrow badge */}
       <div
