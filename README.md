@@ -430,7 +430,7 @@ Stacked compression pipeline:
 ## ✦ Database
 
 <p align="center">
-  <img src="https://placehold.co/1000x600/F9F9F6/0F0F0E?text=Database+Schema+ERD" alt="Database Schema" width="80%" style="border-radius: 14px; border: 1px solid rgba(15,15,14,0.08);" />
+  <img src="public/image1.png" alt="Database Schema" width="80%" style="border-radius: 14px; border: 1px solid rgba(15,15,14,0.08);" />
 </p>
 
 <br/>
