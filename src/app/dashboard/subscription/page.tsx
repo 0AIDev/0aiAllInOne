@@ -3,9 +3,11 @@ import { prisma } from "@/lib/prisma";
 import { redirect } from "next/navigation";
 import { PlanCards } from "./plan-cards";
 
-export default async function SubscriptionPage() {
+export default async function SubscriptionPage(props: { searchParams?: Promise<{ require_payment?: string }> }) {
   const session = await verifySession();
   if (!session) redirect("/login");
+  const searchParams = await props.searchParams;
+  const requirePayment = searchParams?.require_payment === "true";
 
   const [tenant, subscription, invoices, plans] = await Promise.all([
     prisma.tenant.findUnique({
@@ -63,6 +65,11 @@ export default async function SubscriptionPage() {
         </div>
       </div>
 
+      {requirePayment && (
+        <div className="mb-6 rounded-[14px] border border-amber-200 bg-amber-50 p-4 text-sm text-amber-800">
+          Your current plan requires payment. Choose a payment method below to continue using the dashboard.
+        </div>
+      )}
       <PlanCards plans={plans} currentTier={tenant.planTier} />
 
       {invoices.length > 0 && (

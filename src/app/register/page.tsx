@@ -61,8 +61,11 @@ function RegisterForm() {
 
   useEffect(() => {
     const emailParam = searchParams.get("email");
-    if (emailParam) {
-      setForm((prev) => ({ ...prev, email: emailParam }));
+    if (emailParam) setForm((prev) => ({ ...prev, email: emailParam }));
+    const tierParam = searchParams.get("tier");
+    if (tierParam && ["FREE", "STARTER", "PRO", "ENTERPRISE"].includes(tierParam.toUpperCase())) {
+      setSelectedPlan(tierParam.toUpperCase());
+      setStep("form");
     }
   }, [searchParams]);
 

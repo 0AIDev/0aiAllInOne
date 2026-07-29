@@ -3,6 +3,8 @@ import { prisma } from "@/lib/prisma";
 import { redirect } from "next/navigation";
 import { DashboardSidebar } from "@/components/layout/dashboard-sidebar";
 
+const PAID_PLANS = ["STARTER", "PRO", "BUSINESS", "ENTERPRISE"];
+
 export default async function DashboardLayout({
   children,
 }: {
@@ -13,8 +15,18 @@ export default async function DashboardLayout({
 
   const tenant = await prisma.tenant.findUnique({
     where: { id: session.tenantId },
-    select: { creditsRemaining: true },
+    select: { creditsRemaining: true, planTier: true },
   });
+
+  if (!tenant) redirect("/login");
+
+  // If user has a paid plan but no active subscription, redirect to subscription page
+  if (PAID_PLANS.includes(tenant.planTier)) {
+    const sub = await prisma.subscription.findFirst({
+      where: { tenantId: session.tenantId, status: "ACTIVE" },
+    });
+    if (!sub) redirect("/dashboard/subscription?require_payment=true");
+  }
 
   return (
     <div className="flex min-h-screen">
