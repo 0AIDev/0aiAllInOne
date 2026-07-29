@@ -1,11 +1,7 @@
 import { requireAdmin } from "@/lib/auth/auth-options";
 import { prisma } from "@/lib/prisma";
 import { redirect } from "next/navigation";
-import Image from "next/image";
-import { cn } from "@/lib/utils/cn";
-
-const faviconUrl = (domain: string) =>
-  `https://www.google.com/s2/favicons?domain=${domain}&sz=32`;
+import { ProviderRow } from "./provider-connect";
 
 interface ProviderGroup {
   name: string;
@@ -176,28 +172,4 @@ function ProviderGroupCard({ group }: { group: ProviderGroup }) {
   );
 }
 
-function ProviderRow(props: { slug: string; name: string; domain: string; connected: boolean }) {
-  return (
-    <div className="flex items-center gap-3 rounded-lg px-3 py-2.5 transition-colors hover:bg-[rgba(15,15,14,0.02)]">
-      <Image
-        src={faviconUrl(props.domain)}
-        alt={props.name}
-        width={18}
-        height={18}
-        className="h-[18px] w-[18px] shrink-0 rounded object-contain"
-        unoptimized
-      />
-      <div className="min-w-0 flex-1">
-        <p className="truncate text-sm font-medium text-[#0F0F0E] dark:text-[#F9F9F6]">{props.name}</p>
-      </div>
-      <span
-        className={cn(
-          "shrink-0 rounded-full px-2 py-0.5 text-[11px] font-medium",
-          props.connected ? "bg-[#DCFCE7] text-[#15803D]" : "bg-[rgba(15,15,14,0.04)] text-[#9CA3AF]"
-        )}
-      >
-        {props.connected ? "Connected" : "No connection"}
-      </span>
-    </div>
-  );
-}
+
