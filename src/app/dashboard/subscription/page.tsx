@@ -6,27 +6,14 @@ import { PlanCards } from "./plan-cards";
 export default async function SubscriptionPage(props: { searchParams?: Promise<{ require_payment?: string }> }) {
   const session = await verifySession();
   if (!session) redirect("/login");
-  const searchParams = await props.searchParams;
+  const searchParams = props.searchParams ? await props.searchParams : {};
   const requirePayment = searchParams?.require_payment === "true";
 
   const [tenant, subscription, invoices, plans] = await Promise.all([
-    prisma.tenant.findUnique({
-      where: { id: session.tenantId },
-      include: { subscription: true },
-    }),
-    prisma.subscription.findFirst({
-      where: { tenantId: session.tenantId },
-      orderBy: { createdAt: "desc" },
-    }),
-    prisma.invoice.findMany({
-      where: { subscription: { tenantId: session.tenantId } },
-      orderBy: { createdAt: "desc" },
-      take: 12,
-    }),
-    prisma.plan.findMany({
-      where: { isPublic: true },
-      orderBy: { sortOrder: "asc" },
-    }),
+    prisma.tenant.findUnique({ where: { id: session.tenantId }, include: { subscription: true } }),
+    prisma.subscription.findFirst({ where: { tenantId: session.tenantId }, orderBy: { createdAt: "desc" } }),
+    prisma.invoice.findMany({ where: { subscription: { tenantId: session.tenantId } }, orderBy: { createdAt: "desc" }, take: 12 }),
+    prisma.plan.findMany({ where: { isPublic: true }, orderBy: { sortOrder: "asc" } }).catch(() => []),
   ]);
 
   if (!tenant) redirect("/login");
