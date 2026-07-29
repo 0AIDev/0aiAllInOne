@@ -45,6 +45,22 @@
 
 <br/>
 
+## ✦ Demo Video
+
+<p align="center">
+  <a href="#">
+    <img src="https://placehold.co/900x500/F9F9F6/0F0F0E?text=▶+Demo+Video+Placeholder+-+Click+to+Watch&font=inter" alt="Demo Video" width="85%" style="border-radius: 20px; border: 1px solid rgba(15,15,14,0.08); box-shadow: 0 4px 24px rgba(0,0,0,0.04);" />
+  </a>
+  <br/>
+  <sub><em>Click above to watch the full product walkthrough (coming soon)</em></sub>
+</p>
+
+<br/>
+
+---
+
+<br/>
+
 ## ✦ Architecture
 
 ```
@@ -524,22 +540,6 @@ model Payout {
 ```
 
 ~40 models total including audit logs, rate limit tracking, health metrics, webhook events, and MCP server configurations.
-
-<br/>
-
-## ✦ Demo Video
-
-<p align="center">
-  <a href="#">
-    <img src="https://placehold.co/900x500/F9F9F6/0F0F0E?text=▶+Demo+Video+Placeholder+-+Click+to+Watch&font=inter" alt="Demo Video" width="85%" style="border-radius: 20px; border: 1px solid rgba(15,15,14,0.08); box-shadow: 0 4px 24px rgba(0,0,0,0.04);" />
-  </a>
-  <br/>
-  <sub><em>Click above to watch the full product walkthrough (coming soon)</em></sub>
-</p>
-
-<br/>
-
----
 
 <br/>
 
