@@ -3,11 +3,12 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { cn } from "@/lib/utils/cn";
-import { LayoutDashboard, Wallet } from "lucide-react";
+import { LayoutDashboard, Wallet, Sparkles } from "lucide-react";
 
 const links = [
   { href: "/dashboard/creator", label: "Dashboard", icon: LayoutDashboard },
   { href: "/dashboard/creator/payouts", label: "Payouts", icon: Wallet },
+  { href: "/dashboard/creator/skills/new", label: "New Skill", icon: Sparkles },
 ];
 
 export function CreatorNav() {

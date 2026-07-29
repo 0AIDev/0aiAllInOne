@@ -11,9 +11,9 @@ export default async function CreatorLayout({
   if (!session) redirect("/login");
 
   return (
-    <div className="min-h-screen bg-[#F9F9F6]">
+    <div className="flex h-screen flex-col bg-[#F9F9F6]">
       <div
-        className="flex items-center justify-between border-b px-8 py-4"
+        className="flex shrink-0 items-center justify-between border-b px-8 py-4"
         style={{ borderColor: "rgba(15,15,14,0.08)" }}
       >
         <div>
@@ -32,7 +32,7 @@ export default async function CreatorLayout({
         </div>
         <CreatorNav />
       </div>
-      <div className="p-8">{children}</div>
+      <div className="flex-1 overflow-y-auto p-8">{children}</div>
     </div>
   );
 }
